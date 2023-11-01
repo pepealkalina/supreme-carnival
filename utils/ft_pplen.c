@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pplen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:46:02 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/01 12:58:34 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:03:27 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Cub3d.h"
+#include "Cub3d.h"
 
 int	ft_pplen(char **pp)
 {

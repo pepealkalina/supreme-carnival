@@ -6,11 +6,11 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:43:16 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/01 12:43:30 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:03:23 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Cub3d.h"
+#include "Cub3d.h"
 
 void	ft_freevpp(void **pptr)
 {

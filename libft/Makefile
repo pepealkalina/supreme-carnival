@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/23 10:08:21 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/01 12:05:18 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/01 15:00:34 by paescano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,10 +42,10 @@ bonus: $(OBJECTS) $(BONUSOBJ) $(INCLUDE)
 	$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
-	rm -f *.o
+	rm -f $(OBJECTS)
 
 fclean:
-	rm -f *.o $(NAME)
+	rm -f $(OBJECTS) $(NAME)
 
 re:	fclean all
 	

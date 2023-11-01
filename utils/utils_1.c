@@ -6,11 +6,11 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:52:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 15:02:35 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:08:59 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Cub3d.h"
+#include "Cub3d.h"
 
 void	ft_print_double(char **arr)
 {

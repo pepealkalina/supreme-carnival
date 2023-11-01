@@ -6,41 +6,60 @@
 #    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/01 14:59:46 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/01 15:08:07 by preina-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
-CHECKER = open_file.c
-
-PARSER = parse_textures.c
-
-UTILS = utils_1.c ft_add_pp.c ft_pplen.c ft_freepp.c
-
-SRC = main.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
-		checker/open_file.c
-
 CC = gcc
+CFLAGS = -Wall -Werror -Wextra -g
+RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -g
+Y = "\033[33m"
+R = "\033[31m"
+G = "\033[32m"
+B = "\033[34m"
+X = "\033[0m"
 
-OBJ = $(SRC:.c=.o)
+CFILES = main.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
+		#checker/open_file.c checker/parse_textures.c
+
+INCLUDES = -I ./includes
+
+OBJECTS = $(CFILES:.c=.o)
+
+%.o : %.c
+	@echo $(Y)Compiling [$<]...$(X)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
+
+$(NAME): $(OBJECTS)
+	@echo $(G)Finished Compiling of [$(CFILES)]$(X)
+	@echo
+	@make -C libft -s
+	@echo $(G)Finished Compiling of [libft]$(X)
+	@echo
+	@echo $(Y)Compiling [$(NAME)]...$(X)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) libft/libft.a -o $(NAME)
+	@echo $(G)Finished Compiling of [$(NAME)]$(X)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@make -C libft -s
-	$(CC) $(CFLAGS) $(SRC) libft/libft.a -o $(NAME)
-
 clean:
+	@$(RM) $(OBJECTS)
 	@make clean -C libft -s
-	rm -rf */*.o
+	@echo $(R)Removed libft objects$(X)
+	@echo $(R)Removed following objects: [$(OBJECTS)]$(X)
 
-fclean:
+fclean: clean
+	@$(RM) $(NAME)
 	@make fclean -C libft -s
-	rm -rf */*.o $(NAME)
+	@echo $(R)Removed following executable: [$(NAME)]$(X)
 
 re: fclean all
 
-.PHONY: fclean all clean re
+norma:
+	@echo $(B)Checking Norminette...$(X)
+	@norminette $(CFILES) ./includes
+
+.PHONY: all clean fclean re norma
