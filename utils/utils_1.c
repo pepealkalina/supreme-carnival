@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:52:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/10/31 15:17:56 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:03:31 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Cub3d.h"
+#include "Cub3d.h"
 
 void	ft_print_double(char **arr)
 {
