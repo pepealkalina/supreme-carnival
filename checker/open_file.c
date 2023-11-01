@@ -6,36 +6,61 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:34:36 by preina-g          #+#    #+#             */
-/*   Updated: 2023/10/31 15:27:47 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:52:54 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3d.h"
 
-char	**ft_read_file(char *file)
+static int	ft_get_map_width(char *str)
 {
-	char	**map;
-	int		fd;
-	char	*line;
-	char	*tmp;
-	char	*map_tmp;
+	int	width;
 
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-		return (NULL);
-	tmp = NULL;
+	width = 0;
+	while (str[width] != '\n')
+		width++;
+	return (width);
+}
+
+static int	ft_add_line(t_game *game, char *line)
+{
+	char	**tmp;
+	int		i;
+
+	if (!line)
+		return (0);
+	i = 0;
+	game->height_map++;
+	tmp = (char **)malloc(sizeof(char *) * (game->height_map + 1));
+	if (!tmp)
+		ft_error_free("Error\nMalloc failed\n", game->map);
+	tmp[game->height_map] = NULL;
+	while (i < game->height_map - 1)
+	{
+		tmp[i] = game->map[i];
+		i++;
+	}
+	tmp[i] = line;
+	if (game->map)
+		free(game->map);
+	game->map = tmp;
+	return (1);
+}
+
+void	ft_map_set_up(char **argv)
+{
+	char	*readmap;
+	int		fd;
+
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		ft_error("Error\nMap not found\n");
 	while (1)
 	{
-		line = get_next_line(fd);
-		printf("%s", line);
-		if (line == NULL)
+		readmap = get_next_line(fd);
+		if (!ft_add_line(game, readmap))
 			break ;
-		map_tmp = tmp;
-		tmp = ft_strjoin(map_tmp, line);
-		free(line);
 	}
-	map = ft_split(tmp, '\n');
-	free(tmp);
-	close(fd);
-	return (map);
+	close (game->fd);
+	game->width_map = ft_get_map_width(game->map[0]);
 }

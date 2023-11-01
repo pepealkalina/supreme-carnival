@@ -6,7 +6,7 @@
 #    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/10/31 14:58:23 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/01 11:41:57 by preina-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CHECKER = open_file.c
 
 PARSER = parse_textures.c
 
-SRC = main.c utils/utils_1.c checker/$(CHECKER)
+SRC = main.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c checker/$(CHECKER)
 
 CC = gcc
 
@@ -32,11 +32,11 @@ $(NAME): $(OBJ)
 
 clean:
 	@make clean -C libft -s
-	rm -rf *.o
+	rm -rf */*.o
 
 fclean:
 	@make fclean -C libft -s
-	rm -rf *.o $(NAME)
+	rm -rf */*.o $(NAME)
 
 re: fclean all
 
