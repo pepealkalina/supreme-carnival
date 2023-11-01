@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_add_pp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:32:41 by paescano          #+#    #+#             */
-/*   Updated: 2023/10/16 18:17:11 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:36:19 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/Cub3d.h"
 
 char	**ft_add_pp(char *arg, char **strs)
 {
