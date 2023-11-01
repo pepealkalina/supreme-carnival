@@ -1,8 +1,12 @@
 NO ./sprite/forest.xpm
+NO ./sprite/forest.xpm
+NO ./sprite/forest.xpm
+NO ./sprite/forest.xpm
+./sprite/forest.xpm NO
 SO ./sprite/forest.xpm
 WE ./sprite/forest.xpm
 EA ./sprite/forest.xpm
- 
+
 F 34,125,70
 C 135,206,235
 
