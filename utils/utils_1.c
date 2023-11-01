@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:52:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/10/31 15:17:56 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:02:35 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,11 @@ void	ft_print_double(char **arr)
 		printf("%s", arr[i]);
 		i++;
 	}
+}
+
+/*free all malloc in cub3d*/
+void	ft_free_cub3d(t_cub3d *cub3d)
+{
+	free(cub3d->file_parser);
+	free(cub3d);
 }

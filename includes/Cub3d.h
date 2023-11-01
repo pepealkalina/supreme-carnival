@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/11/01 14:39:50 by preina-g         ###   ########.fr       */
-=======
-/*   Updated: 2023/11/01 12:44:44 by paescano         ###   ########.fr       */
->>>>>>> e4d1c74f4c5b3a2b88e0506de23148ed06bbbfa2
+/*   Updated: 2023/11/01 15:02:32 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +54,13 @@ typedef struct s_file
 
 	t_rgb		*floor;
 	t_rgb		*ceiling;
+	int			file_lines;
 }t_file;
 
 typedef struct cub3d
 {
 	t_file		*file_parser;
 	char		**file_content;
-	int			file_lines;
 }t_cub3d;
 
 /**
@@ -81,8 +77,6 @@ void	ft_file_set_up(t_cub3d *cub3d, char **argv);
  * @param arr array for printing
  */
 void	ft_print_double(char **arr);
-char	**ft_add_pp(char *arg, char **strs);
-int		ft_pplen(char **pp);
 
 /**
  * @brief frees the memory of a null terminated char **
@@ -107,5 +101,7 @@ int		ft_pplen(char **pp);
  * @return char** string array with the new string
  */
 char	**ft_add_pp(char *arg, char **strs);
+
+void	ft_free_cub3d(t_cub3d *cub3d);
 
 #endif

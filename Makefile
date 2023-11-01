@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
+#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/01 12:50:30 by paescano         ###   ########.fr        #
+#    Updated: 2023/11/01 14:59:46 by preina-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ PARSER = parse_textures.c
 UTILS = utils_1.c ft_add_pp.c ft_pplen.c ft_freepp.c
 
 SRC = main.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
-		checker/open_file.c checker/parse_textures.c
+		checker/open_file.c
 
 CC = gcc
 
