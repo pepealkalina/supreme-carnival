@@ -6,11 +6,11 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:32:41 by paescano          #+#    #+#             */
-/*   Updated: 2023/10/16 18:17:11 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:51:23 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/Cub3d.h"
 
 char	**ft_add_pp(char *arg, char **strs)
 {
