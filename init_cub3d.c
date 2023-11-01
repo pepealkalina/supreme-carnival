@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:21:04 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 15:31:27 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:19:20 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static t_rgb	*ft_init_rgb_parser(void)
 	tmp->blue = 0;
 	tmp->red = 0;
 	tmp->green = 0;
+	return (tmp);
 }
 
 static t_texture	*ft_init_texture_parser(void)
@@ -33,6 +34,7 @@ static t_texture	*ft_init_texture_parser(void)
 		return (NULL);
 	tmp->direction = NULL;
 	tmp->file = NULL;
+	return (tmp);
 }
 
 static t_file	*ft_init_file_parse(void)
@@ -49,6 +51,7 @@ static t_file	*ft_init_file_parse(void)
 	tmp->ceiling = ft_init_rgb_parser();
 	tmp->floor = ft_init_rgb_parser();
 	tmp->file_lines = 0;
+	return (tmp);
 }
 
 t_cub3d	*ft_init_cub3d(void)

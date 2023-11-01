@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:52:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 15:31:25 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:37:03 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 void	ft_print_double(char **arr)
 {
-	int	i;
+	int	j;
 
-	i = 0;
-	while (arr && arr[i])
+	j = 0;
+	if (arr != NULL)
 	{
-		printf("%s", arr[i]);
-		i++;
+		while (arr[j])
+		{
+			printf("pp[%d]: %s\n", j, arr[j]);
+			j++;
+		}
 	}
 }
 

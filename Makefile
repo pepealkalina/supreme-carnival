@@ -6,7 +6,7 @@
 #    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/01 15:11:39 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/01 15:59:41 by preina-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ G = "\033[32m"
 B = "\033[34m"
 X = "\033[0m"
 
-CFILES = main.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
-		checker/open_file.c
+CFILES = main.c init_cub3d.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
+		checker/open_file.c parser/parse_textures.c
 
 INCLUDES = -I ./includes
 
