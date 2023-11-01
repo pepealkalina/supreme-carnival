@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/01 15:11:39 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/01 16:00:03 by paescano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,11 @@ B = "\033[34m"
 X = "\033[0m"
 
 CFILES = main.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
-		checker/open_file.c
+		#checker/open_file.c checker/parse_textures.c
 
-INCLUDES = -I ./includes
+INCLUDES = -I ./includes -I ./MLX42/include/MLX42 
+
+LIBS = libft/libft.a MLX42/libmlx42.a -ldl -lglfw -pthread -lm -L"/Users/$(USER)/.brew/opt/glfw/lib/"
 
 OBJECTS = $(CFILES:.c=.o)
 
@@ -39,21 +41,29 @@ $(NAME): $(OBJECTS)
 	@make -C libft -s
 	@echo $(G)Finished Compiling of [libft]$(X)
 	@echo
+	@make -s all -C MLX42
+	@echo $(G)Finished Compiling of [MLX42]$(X)
+	@echo
 	@echo $(Y)Compiling [$(NAME)]...$(X)
-	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) libft/libft.a -o $(NAME)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBS) -o $(NAME)
 	@echo $(G)Finished Compiling of [$(NAME)]$(X)
 
 all: $(NAME)
 
 clean:
-	@$(RM) $(OBJECTS)
 	@make clean -C libft -s
 	@echo $(R)Removed libft objects$(X)
+	@make clean -C MLX42 -s
+	@echo $(R)Removed MLX42 objects$(X)
+	@$(RM) $(OBJECTS)
 	@echo $(R)Removed following objects: [$(OBJECTS)]$(X)
 
 fclean: clean
-	@$(RM) $(NAME)
 	@make fclean -C libft -s
+	@echo $(R)Removed following executable: [libft.a]$(X)
+	@make fclean -C MLX42 -s
+	@echo $(R)Removed following executable: [MLX42.a]$(X)
+	@$(RM) $(NAME)
 	@echo $(R)Removed following executable: [$(NAME)]$(X)
 
 re: fclean all
