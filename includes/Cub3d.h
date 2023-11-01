@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/11/01 14:39:50 by preina-g         ###   ########.fr       */
+=======
+/*   Updated: 2023/11/01 12:44:44 by paescano         ###   ########.fr       */
+>>>>>>> e4d1c74f4c5b3a2b88e0506de23148ed06bbbfa2
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +83,29 @@ void	ft_file_set_up(t_cub3d *cub3d, char **argv);
 void	ft_print_double(char **arr);
 char	**ft_add_pp(char *arg, char **strs);
 int		ft_pplen(char **pp);
+
+/**
+ * @brief frees the memory of a null terminated char **
+ * 
+ * @param pptr the string array to free
+*/
+void	ft_freevpp(void **pptr);
+
+/**
+ * @brief creates a new string concatenating 2 strings
+ * 
+ * @param s1 the first string
+ * @param s2 the second string
+*/
+int		ft_pplen(char **pp);
+
+/**
+ * @brief adds a string to a null terminated char **
+ * 
+ * @param arg string to add
+ * @param strs string array
+ * @return char** string array with the new string
+ */
+char	**ft_add_pp(char *arg, char **strs);
 
 #endif
