@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 11:29:30 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/01 14:36:14 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 int	main(int argc, char **argv)
 {
-	char	**file;
+	t_cub3d	cub3d;
 
 	if (argc > 2)
 		printf("Error\nToo many arguments");
 	else
 	{
-		file = ft_read_file(argv[1]);
-		ft_print_double(file);
+		cub3d.file_lines = 0;
+		ft_map_set_up(&cub3d, argv);
+		ft_print_double(cub3d.file_content);
 	}
 	return (0);
 }

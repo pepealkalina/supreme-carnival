@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:32:41 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/01 11:55:04 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/01 12:58:53 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**ft_add_pp(char *arg, char **strs)
 	len = ft_pplen(strs) + 1;
 	tmp = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!tmp)
-		ft_free_error(ERROR_MALLOC);
+		return (NULL);
 	tmp[len] = NULL;
 	while (i < len - 1)
 	{

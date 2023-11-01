@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 11:54:32 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/01 14:39:50 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ typedef struct s_file
 
 typedef struct cub3d
 {
-	t_file	*file_parser;
-	char	**file_content;
+	t_file		*file_parser;
+	char		**file_content;
+	int			file_lines;
 }t_cub3d;
 
 /**
@@ -68,7 +69,7 @@ typedef struct cub3d
  * @param file file to read
  * @return char**
  */
-char	**ft_read_file(char *file);
+void	ft_file_set_up(t_cub3d *cub3d, char **argv);
 
 /**
  * @brief print a char**
@@ -76,5 +77,7 @@ char	**ft_read_file(char *file);
  * @param arr array for printing
  */
 void	ft_print_double(char **arr);
+char	**ft_add_pp(char *arg, char **strs);
+int		ft_pplen(char **pp);
 
 #endif
