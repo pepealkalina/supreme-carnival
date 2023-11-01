@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pplen.c                                         :+:      :+:    :+:   */
+/*   error_messages.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 12:46:02 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/01 11:55:25 by preina-g         ###   ########.fr       */
+/*   Created: 2023/09/17 19:21:26 by paescano          #+#    #+#             */
+/*   Updated: 2023/11/01 11:50:14 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Cub3d.h"
+#ifndef ERROR_MESSAGES_H
+# define ERROR_MESSAGES_H
 
-int	ft_pplen(char **pp)
-{
-	int	i;
+# define ERROR_MALLOC "\033[31mError\nMalloc failed\033[0m\n"
 
-	if (!pp)
-		return (0);
-	i = 0;
-	while (pp[i])
-		i++;
-	return (i);
-}
+#endif
