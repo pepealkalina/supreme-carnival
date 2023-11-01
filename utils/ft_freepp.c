@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_pp.c                                        :+:      :+:    :+:   */
+/*   ft_freepp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 17:32:41 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/01 12:32:14 by paescano         ###   ########.fr       */
+/*   Created: 2023/11/01 12:43:16 by paescano          #+#    #+#             */
+/*   Updated: 2023/11/01 12:43:30 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3d.h"
 
-char	**ft_add_pp(char *arg, char **strs)
+void	ft_freevpp(void **pptr)
 {
-	char	**tmp;
-	int		i;
-	int		len;
+	int	i;
 
 	i = 0;
-	len = ft_pplen(strs) + 1;
-	tmp = (char **)malloc(sizeof(char *) * (len + 1));
-	if (!tmp)
-		return (perror(ERROR_MALLOC), NULL);
-	tmp[len] = NULL;
-	while (i < len - 1)
-	{
-		tmp[i] = strs[i];
-		i++;
-	}
-	tmp[i] = arg;
-	if (strs)
-		free(strs);
-	strs = tmp;
-	return (strs);
+	while (pptr[i])
+		free(pptr[i++]);
+	free(pptr);
 }
