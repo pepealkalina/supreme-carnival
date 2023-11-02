@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:31 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/02 11:20:31 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/02 16:19:35 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ int	ft_parse_textures(t_cub3d *cub3d)
 		return (FALSE);
 	if (!ft_check_one_of_each((const char **)textures))
 		return (FALSE);
+	ft_save_textures(cub3d, textures);
 	return (TRUE);
 }

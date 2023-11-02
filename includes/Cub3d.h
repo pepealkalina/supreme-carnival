@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/02 12:34:00 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/02 16:26:23 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,16 @@
 /*define a bool*/
 # define TRUE 1
 # define FALSE 0
+
 /*
 	t_texture -> define the textures to use in every direction
 */
 typedef struct s_rgb
 {
-	int	red;
-	int	green;
-	int	blue;
+	int32_t		red;
+	int32_t		green;
+	int32_t		blue;
+	int32_t		hexa;
 }t_rgb;
 /*
 	t_rgb -> define rgb colors in floor and ceiling
@@ -107,5 +109,7 @@ int		ft_parse_textures(t_cub3d *cub3d);
 t_cub3d	*ft_init_cub3d(void);
 int		ft_parse_rgb(t_cub3d *cub3d);
 int		ft_check_is_rgb(const char **colors);
+void	ft_save_rgb(t_cub3d *cub3d, char **textures);
+void	ft_save_textures(t_cub3d *cub3d, char **textures);
 
 #endif
