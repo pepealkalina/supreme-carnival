@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 16:00:13 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/02 12:34:00 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,7 @@ char	**ft_add_pp(char *arg, char **strs);
 void	ft_free_cub3d(t_cub3d *cub3d);
 int		ft_parse_textures(t_cub3d *cub3d);
 t_cub3d	*ft_init_cub3d(void);
+int		ft_parse_rgb(t_cub3d *cub3d);
+int		ft_check_is_rgb(const char **colors);
 
 #endif

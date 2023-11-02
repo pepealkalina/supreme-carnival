@@ -6,7 +6,7 @@
 #    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/01 18:01:46 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/02 12:30:51 by preina-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ B = "\033[34m"
 X = "\033[0m"
 
 CFILES = main.c init_cub3d.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
-		checker/open_file.c parser/parse_textures.c parser/parse_textures_2.c
+		checker/open_file.c parser/parse_textures.c parser/parse_textures_2.c parser/parse_rgb.c \
+		parser/parse_rgb_2.c
 
 INCLUDES = -I ./includes -I ./MLX42/include/MLX42 
 

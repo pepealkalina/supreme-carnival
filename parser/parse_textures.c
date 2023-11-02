@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:31 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 18:14:54 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/02 11:20:31 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	ft_check_dup_textures(const char **textures)
 	int	j;
 
 	i = 0;
+	if (!textures)
+		return (FALSE);
 	while (textures[i])
 	{
 		j = 0;
@@ -67,7 +69,7 @@ int	ft_check_dup_textures(const char **textures)
 	return (TRUE);
 }
 
-int	ft_check_one_of_each(const char **textures)
+static int	ft_check_one_of_each(const char **textures)
 {
 	int	i;
 	int	textures_count;
@@ -96,7 +98,6 @@ int	ft_parse_textures(t_cub3d *cub3d)
 	char	**textures;
 
 	textures = ft_search_texture(cub3d->file_content);
-	ft_print_double(textures);
 	if (!ft_check_dup_textures((const char **)textures))
 		return (FALSE);
 	if (!ft_check_one_of_each((const char **)textures))

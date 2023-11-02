@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 18:00:27 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/02 11:38:54 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,14 @@ int	main(int argc, char **argv)
 		if (!ft_parse_textures(cub3d))
 		{
 			ft_free_cub3d(cub3d);
-			exit(printf("ERROR\n"));
+			exit(printf("Error\n[-]Wrong textures Format!!\n%s", \
+			TEXTURE_USAGE));
+		}
+		if (!ft_parse_rgb(cub3d))
+		{
+			ft_free_cub3d(cub3d);
+			exit(printf("Error\n[-]Wrong RGB Format!!\n%s", \
+			RGB_USAGE));
 		}
 	}
 	ft_free_cub3d(cub3d);
