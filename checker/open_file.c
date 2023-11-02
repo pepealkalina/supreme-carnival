@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:34:36 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 15:20:17 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/02 17:22:08 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,16 @@ static int	ft_add_line(t_cub3d *cub3d, char *line)
 	return (1);
 }
 
-void	ft_file_set_up(t_cub3d *cub3d, char **argv)
+int	ft_file_set_up(t_cub3d *cub3d, char **argv)
 {
 	char	*readmap;
 	int		fd;
 
+	if (!ft_chec_if_cub(argv[1]))
+		return (FALSE);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		return ;
+		return (FALSE);
 	while (1)
 	{
 		readmap = get_next_line(fd);
@@ -53,4 +55,5 @@ void	ft_file_set_up(t_cub3d *cub3d, char **argv)
 			break ;
 	}
 	close (fd);
+	return (TRUE);
 }

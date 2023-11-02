@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/02 16:26:23 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/02 17:23:57 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ typedef struct cub3d
  * @brief read the file an return it for parser
  * 
  * @param file file to read
- * @return char**
+ * @return int
  */
-void	ft_file_set_up(t_cub3d *cub3d, char **argv);
+int	ft_file_set_up(t_cub3d *cub3d, char **argv);
 
 /**
  * @brief print a char**
@@ -111,5 +111,6 @@ int		ft_parse_rgb(t_cub3d *cub3d);
 int		ft_check_is_rgb(const char **colors);
 void	ft_save_rgb(t_cub3d *cub3d, char **textures);
 void	ft_save_textures(t_cub3d *cub3d, char **textures);
+int		ft_chec_if_cub(char *file);
 
 #endif
