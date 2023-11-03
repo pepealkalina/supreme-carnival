@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/02 17:09:13 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/03 18:05:12 by paescano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME = cub3D
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
@@ -22,9 +22,9 @@ G = "\033[32m"
 B = "\033[34m"
 X = "\033[0m"
 
-CFILES = main.c init_cub3d.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
+CFILES = main.c inits/init_cub3d.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
 		checker/open_file.c parser/parse_textures.c parser/parse_textures_2.c parser/parse_rgb.c \
-		parser/parse_rgb_2.c parser/parse_cub.c
+		parser/parse_rgb_2.c parser/parse_cub.c inits/init_mlx.c handlers/handler_background.c \
 
 INCLUDES = -I ./includes -I ./MLX42/include/MLX42 
 
@@ -39,6 +39,7 @@ OBJECTS = $(CFILES:.c=.o)
 $(NAME): $(OBJECTS)
 	@echo $(G)Finished Compiling of [$(CFILES)]$(X)
 	@echo
+	@echo $(Y)Compiling [libft]...$(X)
 	@make -C libft -s
 	@echo $(G)Finished Compiling of [libft]$(X)
 	@echo

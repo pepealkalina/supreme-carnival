@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/02 17:23:57 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:01:20 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@
 # include <fcntl.h> 
 # include <string.h>
 # include "../libft/libft.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 # include "error_messages.h"
 
 /*define a bool*/
 # define TRUE 1
 # define FALSE 0
+
+/*define window size*/
+# define WIDTH 1280
+# define HEIGHT 720
 
 /*
 	t_texture -> define the textures to use in every direction
@@ -63,6 +68,8 @@ typedef struct cub3d
 {
 	t_file		*file_parser;
 	char		**file_content;
+	mlx_t		*mlx;
+	mlx_image_t	*img;
 }t_cub3d;
 
 /**
@@ -71,7 +78,7 @@ typedef struct cub3d
  * @param file file to read
  * @return int
  */
-int	ft_file_set_up(t_cub3d *cub3d, char **argv);
+int		ft_file_set_up(t_cub3d *cub3d, char **argv);
 
 /**
  * @brief print a char**
@@ -103,6 +110,28 @@ int		ft_pplen(char **pp);
  * @return char** string array with the new string
  */
 char	**ft_add_pp(char *arg, char **strs);
+
+/**
+ * @brief initialize the mlx pointer, hooks and window
+ * 
+ * @param cub3d data struct
+ */
+void	ft_init_mlx(t_cub3d *cub3d);
+
+/**
+ * @brief create a new image and load the background
+ * 
+ * @param cub3d data struct
+ */
+void	ft_load_background(t_cub3d *cub3d);
+
+/**
+ * @brief destroy the image and reload the background
+ * with a new image
+ * 
+ * @param cub3d 
+ */
+void	ft_reload_background(t_cub3d *cub3d);
 
 void	ft_free_cub3d(t_cub3d *cub3d);
 int		ft_parse_textures(t_cub3d *cub3d);
