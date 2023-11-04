@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:49:00 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/03 18:05:34 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:41:11 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	ft_keyhook(mlx_key_data_t keydata, void *param)
 		printf("RIGHT\n");
 	if (keydata.key == MLX_KEY_ESCAPE
 		&& (keydata.action == MLX_REPEAT || keydata.action == MLX_PRESS))
-		ft_free_cub3d(cub3d);
+		ft_exit_mlx(cub3d);
 }
 
 void	ft_init_mlx(t_cub3d *cub3d)
@@ -46,7 +46,7 @@ void	ft_init_mlx(t_cub3d *cub3d)
 	if (!cub3d->mlx)
 		exit (EXIT_FAILURE);
 	mlx_key_hook(cub3d->mlx, &ft_keyhook, (void *) cub3d);
-	mlx_close_hook(cub3d->mlx, (void *) &ft_free_cub3d, (void *) cub3d);
+	mlx_close_hook(cub3d->mlx, (void *) &ft_exit_mlx, (void *) cub3d);
 	ft_load_background(cub3d);
 	mlx_loop(cub3d->mlx);
 }
