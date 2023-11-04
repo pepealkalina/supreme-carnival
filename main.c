@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/02 17:22:26 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/03 12:16:27 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ C <red>,<green>,<blue>\n\t\
 F <red>,<green>,<blue>\n"));
 		}
 	}
-	printf("NO-> %s\nSO-> %s\nWE-> %s\nEA-> %s\nFr-> %d\nFg-> %d\nFb-> %d\nFh-> %X\nCr-> %d\nCg-> %d\nCb-> %d\nCh-> %X\n", cub3d->file_parser->north->file, cub3d->file_parser->south->file, cub3d->file_parser->west->file, cub3d->file_parser->east->file,  cub3d->file_parser->floor->red, cub3d->file_parser->floor->green, cub3d->file_parser->floor->blue, cub3d->file_parser->floor->hexa, cub3d->file_parser->ceiling->red, cub3d->file_parser->ceiling->green, cub3d->file_parser->ceiling->blue, cub3d->file_parser->ceiling->hexa);
+	ft_parse_map(cub3d);
+	//printf("NO-> %s\nSO-> %s\nWE-> %s\nEA-> %s\nFr-> %d\nFg-> %d\nFb-> %d\nFh-> %X\nCr-> %d\nCg-> %d\nCb-> %d\nCh-> %X\n", cub3d->file_parser->north->file, cub3d->file_parser->south->file, cub3d->file_parser->west->file, cub3d->file_parser->east->file,  cub3d->file_parser->floor->red, cub3d->file_parser->floor->green, cub3d->file_parser->floor->blue, cub3d->file_parser->floor->hexa, cub3d->file_parser->ceiling->red, cub3d->file_parser->ceiling->green, cub3d->file_parser->ceiling->blue, cub3d->file_parser->ceiling->hexa);
 	ft_free_cub3d(cub3d);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:58:34 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 12:04:39 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:19:51 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			ft_isalnum(int argument);
 int			ft_isascii(int argument);
 int			ft_isprint(int argument);
 int			ft_isdigit(int argument);
-size_t		ft_strlen(const char *str);
+int			ft_strlen(const char *str);
 int			ft_toupper(int chara);
 int			ft_tolower(int chara);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);

@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/02 17:23:57 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/04 11:38:26 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@
 /*define a bool*/
 # define TRUE 1
 # define FALSE 0
+
+/*define tiles*/
+# define WALL '1'
+# define VOID '0'
+# define START_N 'N'
+# define START_S 'S'
+# define START_E 'E'
+# define START_W 'W'
 
 /*
 	t_texture -> define the textures to use in every direction
@@ -43,12 +51,28 @@ typedef struct s_texture
 	char	*file;
 }t_texture;
 
+typedef struct s_player
+{
+	char	direction;
+	int		pos_x;
+	int		pos_y;
+}t_player;
+
+typedef struct s_map
+{
+	t_player	*start;
+	int			max_heigth;
+	int			max_with;
+	char		**map_content;
+}t_map;
+
 /*
 	t_texture -> define the textures to use in every direction
 	t_rgb -> define rgb colors in floor and ceiling
 */
 typedef struct s_file
 {
+	t_map		*map;
 	t_texture	*north;
 	t_texture	*south;
 	t_texture	*east;
@@ -71,7 +95,7 @@ typedef struct cub3d
  * @param file file to read
  * @return int
  */
-int	ft_file_set_up(t_cub3d *cub3d, char **argv);
+int		ft_file_set_up(t_cub3d *cub3d, char **argv);
 
 /**
  * @brief print a char**
@@ -112,5 +136,9 @@ int		ft_check_is_rgb(const char **colors);
 void	ft_save_rgb(t_cub3d *cub3d, char **textures);
 void	ft_save_textures(t_cub3d *cub3d, char **textures);
 int		ft_chec_if_cub(char *file);
+int		ft_parse_map(t_cub3d *cub3d);
+void	ft_sub_get_start_pos(t_player *start, \
+		const char *map, int *flag, int line);
+char	**ft_dup_map(char **map);
 
 #endif

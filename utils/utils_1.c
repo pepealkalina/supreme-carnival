@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:52:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 16:37:03 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/04 11:27:15 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,21 @@ void	ft_print_double(char **arr)
 			j++;
 		}
 	}
+}
+
+char	**ft_dup_map(char **map)
+{
+	int		i;
+	char	**tmp;
+
+	tmp = (char **)malloc(sizeof(char *) * ft_pplen(map));
+	i = 0;
+	while (map[i])
+	{
+		tmp[i] = ft_strdup(map[i]);
+		i++;
+	}
+	return (tmp);
 }
 
 /*free all malloc in cub3d*/
