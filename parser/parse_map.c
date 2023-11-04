@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:49:07 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/04 11:37:34 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:25:06 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int	ft_is_valid(t_map *map)
 {
 	char	**tmp_map;
 
-	tmp_map = ft_dup_map(map->map_content);
-	if (!ft_get_start_pos(map->start, (const char **)map->map_content))
-		return (FALSE);
+	tmp_map = ft_ppdup(map->map_content);
+	//if (!ft_get_start_pos(map->start, (const char **)map->map_content))
+	//	return (FALSE); aqui la funcion no existe
 	if (!ft_flood_fill(tmp_map, map->start->pos_x, map->start->pos_y))
 		return (FALSE);
 	ft_freevpp((void **)tmp_map);
@@ -72,9 +72,9 @@ int	ft_is_valid(t_map *map)
 
 int	ft_parse_map(t_cub3d *cub3d)
 {
-	ft_get_map(cub3d);
+	ft_get_map(cub3d); // el segfault esta aqui
 	if (!ft_is_valid(cub3d->file_parser->map))
 		return (FALSE);
-	ft_print_double(cub3d->file_parser->map->map_content);
+	ft_printpp(cub3d->file_parser->map->map_content);
 	return (TRUE);
 }

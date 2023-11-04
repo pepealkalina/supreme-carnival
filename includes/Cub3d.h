@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/04 11:41:16 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:18:42 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,9 @@ int		ft_file_set_up(t_cub3d *cub3d, char **argv);
 /**
  * @brief print a char**
  * 
- * @param arr array for printing
+ * @param pp array for printing
  */
-void	ft_print_double(char **arr);
+void	ft_printpp(char **pp);
 
 /**
  * @brief frees the memory of a null terminated char **
@@ -136,6 +136,14 @@ int		ft_pplen(char **pp);
 char	**ft_add_pp(char *arg, char **strs);
 
 /**
+ * @brief duplicates a char **
+ * 
+ * @param pp char ** to duplicate
+ * @return char** copy of pp
+ */
+char	**ft_ppdup(char **pp);
+
+/**
  * @brief initialize the mlx pointer, hooks and window
  * 
  * @param cub3d data struct
@@ -157,7 +165,21 @@ void	ft_load_background(t_cub3d *cub3d);
  */
 void	ft_reload_background(t_cub3d *cub3d);
 
+/**
+ * @brief free the memory of cub3d
+ * 
+ * @param cub3d data struct
+ */
 void	ft_free_cub3d(t_cub3d *cub3d);
+
+/**
+ * @brief erase the image, close the window and free the memory
+ * of cub3d
+ * 
+ * @param cub3d data struct
+ */
+void	ft_exit_mlx(t_cub3d *cub3d);
+
 int		ft_parse_textures(t_cub3d *cub3d);
 t_cub3d	*ft_init_cub3d(void);
 int		ft_parse_rgb(t_cub3d *cub3d);
@@ -168,6 +190,5 @@ int		ft_chec_if_cub(char *file);
 int		ft_parse_map(t_cub3d *cub3d);
 void	ft_sub_get_start_pos(t_player *start, \
 		const char *map, int *flag, int line);
-char	**ft_dup_map(char **map);
 
 #endif

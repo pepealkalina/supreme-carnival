@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/04 11:40:49 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/04 16:19:32 by paescano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,10 @@ G = "\033[32m"
 B = "\033[34m"
 X = "\033[0m"
 
-CFILES = main.c inits/init_cub3d.c utils/utils_1.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
+CFILES = main.c inits/init_cub3d.c utils/ft_free.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
 		checker/open_file.c parser/parse_textures.c parser/parse_textures_2.c parser/parse_rgb.c \
 		parser/parse_rgb_2.c parser/parse_cub.c inits/init_mlx.c handlers/handler_background.c \
+		parser/parse_map.c parser/parse_map_2.c utils/ft_printpp.c utils/ft_ppdup.c \
 
 INCLUDES = -I ./includes -I ./MLX42/include/MLX42 
 
