@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:52:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/04 11:27:15 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/04 11:41:57 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,8 @@ void	ft_free_cub3d(t_cub3d *cub3d)
 	free(cub3d->file_parser->floor);
 	free(cub3d->file_parser->ceiling);
 	free(cub3d->file_parser);
+	mlx_delete_image(cub3d->mlx, cub3d->img);
+	mlx_terminate(cub3d->mlx);
 	free(cub3d);
+	exit(EXIT_SUCCESS);
 }

@@ -6,16 +6,22 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/03 12:16:27 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/04 11:40:14 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/Cub3d.h"
 
+void	ft_leaks(void)
+{
+	system("leaks cub3D");
+}
+
 int	main(int argc, char **argv)
 {
 	t_cub3d	*cub3d;
 
+	atexit(&ft_leaks);
 	cub3d = ft_init_cub3d();
 	if (argc > 2)
 		printf("Error\nToo many arguments");
