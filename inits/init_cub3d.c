@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_cub3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:21:04 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/04 11:41:49 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:13:04 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ static t_rgb	*ft_init_rgb_parser(void)
 	tmp = (t_rgb *)malloc(sizeof(t_rgb));
 	if (!tmp)
 		return (NULL);
-	tmp->blue = 0;
-	tmp->red = 0;
-	tmp->green = 0;
+	tmp->hexa = 0;
 	return (tmp);
 }
 
@@ -34,6 +32,8 @@ static t_texture	*ft_init_texture_parser(void)
 		return (NULL);
 	tmp->direction = NULL;
 	tmp->file = NULL;
+	tmp->tex_xpm = NULL;
+	tmp->tex_int = NULL;
 	return (tmp);
 }
 

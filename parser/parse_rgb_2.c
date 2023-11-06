@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_rgb_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:48:39 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/02 16:27:32 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:14:56 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Cub3d.h"
+#include "Cub3d.h"
 
 int	ft_checknum(char **rgb)
 {
@@ -48,15 +48,18 @@ int	ft_check_is_rgb(const char **colors)
 	return (TRUE);
 }
 
+int	ft_rgba_to_hex(int r, int g, int b, int a)
+{
+	return (r << 24 | g << 16 | b << 8 | a);
+}
+
 static void	ft_save_each(t_rgb *color, char **splited_colors)
 {
-	int32_t	a;
+	int	a;
 
 	a = 0xFF;
-	color->red = ft_atoi(splited_colors[0]);
-	color->green = ft_atoi(splited_colors[1]);
-	color->blue = ft_atoi(splited_colors[2]);
-	color->hexa = color->red << 24 | color->green << 16 | color->blue << 8 | a;
+	color->hexa = ft_rgba_to_hex(ft_atoi(splited_colors[0]),
+			ft_atoi(splited_colors[1]), ft_atoi(splited_colors[2]), a);
 }
 
 void	ft_save_rgb(t_cub3d *cub3d, char **textures)
