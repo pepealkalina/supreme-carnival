@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handler_background.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:48:35 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/06 13:04:54 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/07 14:53:04 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static void	background_3d(t_cub3d *cub3d)
 	{
 		j = -1;
 		while (++j < WIDTH)
-			mlx_put_pixel(cub3d->img, j, i, cub3d->file_parser->ceiling->hexa);
+			mlx_put_pixel(cub3d->img, j, i, cub3d->file_parser.ceiling.hexa);
 		i++;
 	}
 	while (i < HEIGHT)
 	{
 		j = -1;
 		while (++j < WIDTH)
-			mlx_put_pixel(cub3d->img, j, i, cub3d->file_parser->floor->hexa);
+			mlx_put_pixel(cub3d->img, j, i, cub3d->file_parser.floor.hexa);
 		i++;
 	}
 }

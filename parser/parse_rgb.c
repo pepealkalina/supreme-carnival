@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:34:20 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/07 12:42:36 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/07 14:47:57 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ char	**ft_get_rgb(char **file)
 
 	i = 0;
 	saved_text = NULL;
+	if (!file)
+		return (NULL);
 	while (file[i])
 	{
 		j = 0;

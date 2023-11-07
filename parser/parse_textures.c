@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:31 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/07 12:47:00 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/07 14:47:06 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_sub_parse_textures(char ***saved_text, char **file, int i)
 	int	j;
 
 	j = 0;
-	while (file[i][j])
+	while (file && file[i][j])
 	{
 		if (file[i][j] == 'N' && file[i][j + 1] == 'O')
 			*saved_text = ft_add_pp(file[i], *saved_text);

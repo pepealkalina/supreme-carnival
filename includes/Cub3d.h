@@ -64,7 +64,7 @@ typedef struct s_player
 
 typedef struct s_map
 {
-	t_player	*start;
+	t_player	start;
 	int			max_heigth;
 	int			max_with;
 	char		**map_content;
@@ -76,20 +76,20 @@ typedef struct s_map
 */
 typedef struct s_file
 {
-	t_map		*map;
-	t_texture	*north;
-	t_texture	*south;
-	t_texture	*east;
-	t_texture	*west;
+	t_map		map;
+	t_texture	north;
+	t_texture	south;
+	t_texture	east;
+	t_texture	west;
 
-	t_rgb		*floor;
-	t_rgb		*ceiling;
+	t_rgb		floor;
+	t_rgb		ceiling;
 	int			file_lines;
 }t_file;
 
 typedef struct cub3d
 {
-	t_file		*file_parser;
+	t_file		file_parser;
 	char		**file_content;
 	mlx_t		*mlx;
 	mlx_image_t	*img;
