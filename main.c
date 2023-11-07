@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/04 16:23:07 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:16:38 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 			exit(printf("Error\n[-]Wrong file format\n"));
 		if (!ft_parse_textures(cub3d))
 		{
+			ft_freevpp((void *)cub3d->file_content);
 			ft_free_cub3d(cub3d);
 			exit(printf("Error\n[-]Wrong textures Format!!\n[!]The correct Format is:\n\t\
 NO <texture_path>\n\t\
@@ -40,14 +41,20 @@ WE <texture_path>\n"));
 		}
 		if (!ft_parse_rgb(cub3d))
 		{
+			ft_freevpp((void *)cub3d->file_content);
 			ft_free_cub3d(cub3d);
 			exit(printf("Error\n[-]Wrong RGB Format!!\n[!]The correct Format is:\n\t\
 C <red>,<green>,<blue>\n\t\
 F <red>,<green>,<blue>\n"));
 		}
 	}
-	ft_parse_map(cub3d);
-	//printf("NO-> %s\nSO-> %s\nWE-> %s\nEA-> %s\nFr-> %d\nFg-> %d\nFb-> %d\nFh-> %X\nCr-> %d\nCg-> %d\nCb-> %d\nCh-> %X\n", cub3d->file_parser->north->file, cub3d->file_parser->south->file, cub3d->file_parser->west->file, cub3d->file_parser->east->file,  cub3d->file_parser->floor->red, cub3d->file_parser->floor->green, cub3d->file_parser->floor->blue, cub3d->file_parser->floor->hexa, cub3d->file_parser->ceiling->red, cub3d->file_parser->ceiling->green, cub3d->file_parser->ceiling->blue, cub3d->file_parser->ceiling->hexa);
+	if (!ft_parse_map(cub3d))
+	{
+		ft_freevpp((void *)cub3d->file_content);
+		ft_free_cub3d(cub3d);
+		exit(printf("Error\n[-]Wrong Map Format!!"));
+	}
+	ft_freevpp((void *)cub3d->file_content);
 	ft_free_cub3d(cub3d);
 	return (0);
 }

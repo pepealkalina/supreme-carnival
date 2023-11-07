@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:21:04 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/04 11:41:49 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:05:09 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,24 @@ static t_rgb	*ft_init_rgb_parser(void)
 	tmp->blue = 0;
 	tmp->red = 0;
 	tmp->green = 0;
+	return (tmp);
+}
+
+static t_map	*ft_init_map_parser(void)
+{
+	t_map	*tmp;
+
+	tmp = (t_map *)malloc(sizeof(t_map));
+	if (!tmp)
+		return (NULL);
+	tmp->max_heigth = 0;
+	tmp->max_with = 0;
+	tmp->map_content = NULL;
+	tmp->start = (t_player *)malloc(sizeof(t_player));
+	if (!tmp)
+		return (NULL);
+	tmp->start->pos_x = 0;
+	tmp->start->pos_y = 0;
 	return (tmp);
 }
 
@@ -50,6 +68,7 @@ static t_file	*ft_init_file_parse(void)
 	tmp->west = ft_init_texture_parser();
 	tmp->ceiling = ft_init_rgb_parser();
 	tmp->floor = ft_init_rgb_parser();
+	tmp->map = ft_init_map_parser();
 	tmp->file_lines = 0;
 	return (tmp);
 }

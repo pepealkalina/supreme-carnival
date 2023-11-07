@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:01:51 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/01 18:11:17 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:21:31 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_save_each(t_texture *texture, char **splited_texture)
 {
 	texture->direction = splited_texture[0];
 	texture->file = splited_texture[1];
+	ft_freevpp((void **)splited_texture);
 }
 
 void	ft_save_textures(t_cub3d *cub3d, char **textures)
