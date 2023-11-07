@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:31 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/07 11:26:46 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/07 12:47:00 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,26 +80,30 @@ int	ft_check_dup_textures(const char **textures)
 
 static int	ft_check_one_of_each(const char **textures)
 {
-	int	i;
-	int	textures_count;
+	int		i;
+	int		textures_count;
+	char	**split;
 
-
-	i = 0;
+	i = -1;
 	textures_count = 0;
-	while (textures[i])
+	while (textures[++i])
 	{
-		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "NO", 2))
+		split = ft_split(textures[i], ' ');
+		if (!ft_strncmp(split[0], "NO", 2))
 			textures_count++;
-		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "SO", 2))
+		if (!ft_strncmp(split[0], "SO", 2))
 			textures_count++;
-		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "WE", 2))
+		if (!ft_strncmp(split[0], "WE", 2))
 			textures_count++;
-		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "EA", 2))
+		if (!ft_strncmp(split[0], "EA", 2))
 			textures_count++;
-		i++;
 	}
 	if (textures_count < 4)
+	{
+		ft_freevpp((void **)split);
 		return (FALSE);
+	}
+	ft_freevpp((void **)split);
 	return (TRUE);
 }
 
