@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/06 13:12:12 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:30:28 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,22 @@
 # define HEIGHT 720
 
 /*
-	t_texture -> define the textures to use in every direction
+	t_rgb -> define rgb colors in floor and ceiling
 */
 typedef struct s_rgb
 {
-	int32_t		red;
-	int32_t		green;
-	int32_t		blue;
-	int32_t		hexa;
+	int		hexa;
 }t_rgb;
+
 /*
-	t_rgb -> define rgb colors in floor and ceiling
+	t_texture -> define the textures to use in every direction
 */
 typedef struct s_texture
 {
 	char	*direction;
 	char	*file;
+	xpm_t	*tex_xpm;
+	int		**tex_int;
 }t_texture;
 
 typedef struct s_player
@@ -178,6 +178,25 @@ void	ft_free_cub3d(t_cub3d *cub3d);
  * @param cub3d data struct
  */
 void	ft_exit_mlx(t_cub3d *cub3d);
+
+/**
+ * @brief convert a rgba color to hex color
+ * 
+ * @param r red
+ * @param g green
+ * @param b blue
+ * @param a opacity
+ * @return int hex color
+ */
+int		ft_rgba_to_hex(int r, int g, int b, int a);
+
+/**
+ * @brief load the textures and convert them to int ** and
+ * save them in the struct in int ** format and xpm_t format
+ * 
+ * @param cub3d struct data
+ */
+void	load_textures(t_cub3d *cub3d);
 
 int		ft_parse_textures(t_cub3d *cub3d);
 t_cub3d	*ft_init_cub3d(void);

@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:49:00 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/04 16:41:11 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:46:23 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,5 @@ void	ft_init_mlx(t_cub3d *cub3d)
 	mlx_close_hook(cub3d->mlx, (void *) &ft_exit_mlx, (void *) cub3d);
 	ft_load_background(cub3d);
 	mlx_loop(cub3d->mlx);
+	ft_exit_mlx(cub3d);
 }
