@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:48:39 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/07 14:48:47 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:06:45 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	ft_save_rgb(t_cub3d *cub3d, char **textures)
 		if (!ft_strncmp(split[0], "C", 2))
 			ft_save_each(&cub3d->file_parser.ceiling, \
 			ft_split(split[1], ','));
+		ft_freevpp((void **)split);
 		i++;
 	}
-	ft_freevpp((void **)split);
 }

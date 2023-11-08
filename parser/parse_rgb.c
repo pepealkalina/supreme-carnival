@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:34:20 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/07 14:47:57 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:06:10 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int	ft_check_dup_rgb(const char **colors)
 				ft_freevpp((void **)splitj);
 				return (FALSE);
 			}
+			ft_freevpp((void **)splitj);
 		}
+		ft_freevpp((void **)spliti);
 	}
-	ft_freevpp((void **)spliti);
-	ft_freevpp((void **)splitj);
 	return (TRUE);
 }
 
@@ -58,14 +58,11 @@ static int	ft_check_one_of_each(const char **colors)
 			colors_count++;
 		if (!ft_strncmp(split[0], "C", 2))
 			colors_count++;
+		ft_freevpp((void **)split);
 		i++;
 	}
 	if (colors_count < 2)
-	{
-		ft_freevpp((void **)split);
 		return (FALSE);
-	}
-	ft_freevpp((void **)split);
 	return (TRUE);
 }
 

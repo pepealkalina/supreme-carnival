@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/07 14:59:33 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/08 12:56:41 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ F <red>,<green>,<blue>\n"));
 		ft_freevpp((void *)cub3d.file_content);
 		exit(printf("Error\n[-]Wrong Map Format!!"));
 	}
-	ft_init_mlx(&cub3d);
+	//ft_init_mlx(&cub3d);
 	ft_freevpp((void *)cub3d.file_content);
 	return (0);
 }
