@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:01:51 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/08 14:23:17 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/09 17:40:28 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void	ft_save_each(t_texture *texture, char **splited_texture)
 {
-	texture->direction = splited_texture[0];
-	texture->file = splited_texture[1];
-	ft_freevpp((void **)splited_texture);
+	texture->direction = ft_strdup(splited_texture[0]);
+	texture->file = ft_strdup(splited_texture[1]);
 }
 
 void	ft_save_textures(t_cub3d *cub3d, char **textures)
 {
-	int	i;
-	char **split;
+	int		i;
+	char	**split;
 
 	i = 0;
 	while (textures[i])
@@ -37,5 +36,6 @@ void	ft_save_textures(t_cub3d *cub3d, char **textures)
 		if (!ft_strncmp(split[0], "EA", 2))
 			ft_save_each(&cub3d->file_parser.east, split);
 		i++;
+		ft_freevpp((void **)split);
 	}
 }

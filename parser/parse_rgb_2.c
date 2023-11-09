@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:48:39 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/08 15:06:45 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/09 13:17:16 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int	ft_check_is_rgb(const char **colors)
 			return (FALSE);
 		}
 		i++;
+		ft_freevpp((void **)split);
+		ft_freevpp((void **)split_splited);
 	}
-	ft_freevpp((void **)split);
-	ft_freevpp((void **)split_splited);
 	return (TRUE);
 }
 

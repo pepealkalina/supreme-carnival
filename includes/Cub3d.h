@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/08 15:34:41 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/09 17:16:26 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,7 +207,7 @@ void	ft_save_textures(t_cub3d *cub3d, char **textures);
 int		ft_chec_if_cub(char *file);
 int		ft_parse_map(t_cub3d *cub3d);
 void	ft_sub_get_start_pos(t_player *start, \
-		const char *map, int *flag, int line);
+		char *map, int *flag, int line);
 int		ft_sub_is_closed(char *line, char **map, int nline);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 10:34:51 by paescano          #+#    #+#             */
-/*   Updated: 2022/10/30 10:37:44 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/09 14:15:35 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*str;
 	size_t	i;
 	size_t	j;
-
+	
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * (j + i + 1));

@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:31 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/08 15:03:50 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/09 17:38:33 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ static int	ft_check_one_of_each(const char **textures)
 		ft_freevpp((void **)split);
 		return (FALSE);
 	}
-	//ft_freevpp((void **)split);
 	return (TRUE);
 }
 

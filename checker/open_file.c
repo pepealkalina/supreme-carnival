@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:34:36 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/07 14:44:24 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/09 14:50:51 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	ft_file_set_up(t_cub3d *cub3d, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		return (FALSE);
+	cub3d->file_content = NULL;
 	while (1)
 	{
 		readmap = get_next_line(fd);
