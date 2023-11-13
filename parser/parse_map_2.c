@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:47:29 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/09 17:16:19 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:01:09 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char *map, int *flag, int line)
 	int	i;
 
 	i = 0;
-	if (!*map)
+	if (!map)
 		return ;
 	while (map[i++])
 	{

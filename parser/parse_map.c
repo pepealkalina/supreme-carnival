@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:49:07 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/09 17:39:56 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:15:23 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,28 +92,35 @@ int	ft_is_valid(t_map *map)
 	return (TRUE);
 }
 
+void swap(char **a, char **b)
+{
+	printf("a %s",*a);
+	printf("b %s",*b);
+	char *temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 void	ft_reverse_map(t_map *map)
 {
-	char **tmp;
-	char **tmp_map;
-	int i;
+	int	init;
+	int	end;
 
-	tmp_map = ft_ppdup(map->map_content);
-	i = ft_pplen(map->map_content);
-	tmp = NULL;
-	while (--i >= 0)
-		tmp = ft_add_pp(tmp_map[i], tmp);
-	free(map->map_content);
-	map->map_content = ft_ppdup(tmp);
-	ft_freevpp((void **)tmp);
-	//ft_freevpp((void **)tmp_map);
+	init = 0;
+	end = ft_pplen(map->map_content);
+	while (init < end)
+	{
+		swap(&map->map_content[init], &map->map_content[end]);
+		init++;
+		end--;
+	}
 }
 
 int	ft_parse_map(t_cub3d *cub3d)
 {
 	ft_get_map(cub3d);
 	ft_reverse_map(&cub3d->file_parser.map);
-	ft_printpp(cub3d->file_parser.map.map_content);
+	ft_printpp(cub3d->file_parser.map.map_content);	
 	if (!ft_is_valid(&cub3d->file_parser.map))
 		return (FALSE);
 	return (TRUE);

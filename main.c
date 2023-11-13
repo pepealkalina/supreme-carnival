@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/09 17:41:01 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:15:38 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 {
 	t_cub3d	cub3d;
 
-	atexit(&ft_leaks);
+	//atexit(&ft_leaks);
 	//cub3d = ft_init_cub3d();
 	if (argc > 2)
 		printf("Error\nToo many arguments");
