@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/07 11:30:28 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:42:55 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 # include <stdlib.h>
 # include <fcntl.h> 
 # include <string.h>
+# include <math.h>
 # include "../libft/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "error_messages.h"
+
 /*define a bool*/
 # define TRUE 1
 # define FALSE 0
@@ -35,6 +37,10 @@
 /*define window size*/
 # define WIDTH 1280
 # define HEIGHT 720
+
+/*define movement speed*/
+# define MOVE_SPEED 0.1
+# define ROTATION_SPEED 0.07
 
 /*
 	t_rgb -> define rgb colors in floor and ceiling
@@ -87,8 +93,38 @@ typedef struct s_file
 	int			file_lines;
 }t_file;
 
+typedef struct s_raycaster
+{
+	char	**map;
+	double	player_x;
+	double	player_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		map_x;
+	int		map_y;
+	double	side_x;
+	double	side_y;
+	double	delta_x;
+	double	delta_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	double	ray_len;
+	int		line_height;
+	int		line_start;
+	int		line_end;
+	int		tex_x;
+}t_raycaster;
+
 typedef struct cub3d
 {
+	t_raycaster	raycaster;
 	t_file		*file_parser;
 	char		**file_content;
 	mlx_t		*mlx;
@@ -150,21 +186,6 @@ char	**ft_ppdup(char **pp);
 void	ft_init_mlx(t_cub3d *cub3d);
 
 /**
- * @brief create a new image and load the background
- * 
- * @param cub3d data struct
- */
-void	ft_load_background(t_cub3d *cub3d);
-
-/**
- * @brief destroy the image and reload the background
- * with a new image
- * 
- * @param cub3d 
- */
-void	ft_reload_background(t_cub3d *cub3d);
-
-/**
  * @brief free the memory of cub3d
  * 
  * @param cub3d data struct
@@ -191,13 +212,171 @@ void	ft_exit_mlx(t_cub3d *cub3d);
 int		ft_rgba_to_hex(int r, int g, int b, int a);
 
 /**
+ * @brief initialize the data of the player in the struct
+ * 	raycaster
+ * 
+ * @param cub3d struct data
+ */
+void	ft_init_player(t_cub3d *cub3d);
+
+/********************************/
+/*			RAYCASTING			*/
+/********************************/
+
+/**
+ * @brief execute the raycasting algorithm to draw the walls
+ * 
+ * @param cub3d struct data
+ */
+void	ft_raycasting(t_cub3d *cub3d);
+
+/**
+ * @brief calculate the position of the ray
+ * 
+ * @param cub3d struct data
+ */
+void	ft_pos_ray(t_cub3d *cub3d);
+
+/**
+ * @brief calculate the delta of the ray
+ * 
+ * @param cub3d struct data
+ */
+
+void	ft_delta_ray(t_cub3d *cub3d);
+
+/**
+ * @brief calculate the side of the ray
+ * 
+ * @param cub3d struct data
+ */
+void	ft_side_ray(t_cub3d *cub3d);
+
+/**
+ * @brief execute the DDA algorithm to calculate the length of the ray
+ * 
+ * @param cub3d struct data
+ */
+void	ft_dda(t_cub3d *cub3d);
+
+/**
+ * @brief calculate the length of the ray
+ * 
+ * @param cub3d struct data
+ */
+void	ft_len_ray(t_cub3d *cub3d);
+
+/**
+ * @brief calculate the height of the line to draw
+ * 
+ * @param cub3d struct data
+ */
+void	ft_line_height(t_cub3d *cub3d);
+
+/**
+ * @brief calculate the start of the line to draw
+ * 
+ * @param cub3d struct data
+ */
+void	ft_line_start(t_cub3d *cub3d);
+
+/**
+ * @brief calculate the end of the line to draw
+ * 
+ * @param cub3d struct data
+ */
+void	ft_line_end(t_cub3d *cub3d);
+
+/**
+ * @brief calculate the impact of the ray in the texture
+ * 
+ * @param cub3d struct data
+ * @param texture texture to use
+ */
+void	ft_tex_impact(t_cub3d *cub3d, xpm_t *texture);
+
+/**
+ * @brief draw the line in the image
+ * 
+ * @param cub3d struct data
+ * @param tex_xpm texture to use
+ * @param tex_int texture in int ** format
+ * @param pixel pixel to draw
+ */
+void	ft_draw_line(t_cub3d *cub3d, xpm_t *tex_xpm, int **tex_int, int pixel);
+
+/****************************************/
+/*			HANDLERS					*/
+/****************************************/
+
+/**
  * @brief load the textures and convert them to int ** and
  * save them in the struct in int ** format and xpm_t format
  * 
  * @param cub3d struct data
  */
-void	load_textures(t_cub3d *cub3d);
+void	ft_load_textures(t_cub3d *cub3d);
 
+/**
+ * @brief create a new image and load the background
+ * 
+ * @param cub3d data struct
+ */
+void	ft_load_background(t_cub3d *cub3d);
+
+/**
+ * @brief destroy the image and reload the background
+ * with a new image
+ * 
+ * @param cub3d 
+ */
+void	ft_reload_background(t_cub3d *cub3d);
+
+/**
+ * @brief rotate the player to the left
+ * 
+ * @param cub3d struct data
+ */
+void	ft_rotate_left(t_cub3d *cub3d);
+
+/**
+ * @brief rotate the player to the right
+ * 
+ * @param cub3d struct data
+ */
+void	ft_rotate_right(t_cub3d *cub3d);
+
+/**
+ * @brief move the player forward
+ * 
+ * @param cub3d struct data
+ */
+void	ft_move_forward(t_cub3d *cub3d);
+
+/**
+ * @brief move the player backward
+ * 
+ * @param cub3d struct data
+ */
+void	ft_move_backward(t_cub3d *cub3d);
+
+/**
+ * @brief move the player left
+ * 
+ * @param cub3d struct data
+ */
+void	ft_move_left(t_cub3d *cub3d);
+
+/**
+ * @brief move the player right
+ * 
+ * @param cub3d struct data
+ */
+void	ft_move_right(t_cub3d *cub3d);
+
+/****************************************/
+/*			POR CLASIFICAR				*/
+/****************************************/
 int		ft_parse_textures(t_cub3d *cub3d);
 t_cub3d	*ft_init_cub3d(void);
 int		ft_parse_rgb(t_cub3d *cub3d);

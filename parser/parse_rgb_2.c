@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_rgb_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:48:39 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/07 12:17:21 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:14:56 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,15 @@ int	ft_checknum(char **rgb)
 
 int	ft_check_is_rgb(const char **colors)
 {
-	int		i;
-	char	**split;
-	char	**split_splited;
+	int	i;
 
 	i = 0;
 	while (colors[i])
 	{
-		split_splited = ft_split(colors[i], ' ');
-		split = ft_split(split_splited[1], ',');
-		if (!ft_checknum(split))
-		{
-			ft_freevpp((void **)split);
-			ft_freevpp((void **)split_splited);
+		if (!ft_checknum(ft_split(ft_split(colors[i], ' ')[1], ',')))
 			return (FALSE);
-		}
 		i++;
 	}
-	ft_freevpp((void **)split);
-	ft_freevpp((void **)split_splited);
 	return (TRUE);
 }
 
@@ -70,25 +60,21 @@ static void	ft_save_each(t_rgb *color, char **splited_colors)
 	a = 0xFF;
 	color->hexa = ft_rgba_to_hex(ft_atoi(splited_colors[0]),
 			ft_atoi(splited_colors[1]), ft_atoi(splited_colors[2]), a);
-	ft_freevpp((void **)splited_colors);
 }
 
 void	ft_save_rgb(t_cub3d *cub3d, char **textures)
 {
 	int	i;
-	char **split;
-	i = 0;
 
+	i = 0;
 	while (textures[i])
 	{
-		split = ft_split(textures[i], ' ');
-		if (!ft_strncmp(split[0], "F", 2))
+		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "F", 2))
 			ft_save_each(cub3d->file_parser->floor, \
-			ft_split(split[1], ','));
-		if (!ft_strncmp(split[0], "C", 2))
+			ft_split(ft_split(textures[i], ' ')[1], ','));
+		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "C", 2))
 			ft_save_each(cub3d->file_parser->ceiling, \
-			ft_split(split[1], ','));
+			ft_split(ft_split(textures[i], ' ')[1], ','));
 		i++;
 	}
-	ft_freevpp((void **)split);
 }

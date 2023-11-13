@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/07 11:31:10 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/13 16:22:33 by paescano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,10 @@ CFILES = main.c inits/init_cub3d.c utils/ft_free.c utils/ft_add_pp.c utils/ft_pp
 		checker/open_file.c parser/parse_textures.c parser/parse_textures_2.c parser/parse_rgb.c \
 		parser/parse_rgb_2.c parser/parse_cub.c inits/init_mlx.c handlers/handler_background.c \
 		parser/parse_map.c parser/parse_map_2.c utils/ft_printpp.c utils/ft_ppdup.c \
-		handlers/handler_textures.c
+		handlers/handler_textures.c inits/init_player.c raycasting/raycasting.c \
+		raycasting/pos_len_ray.c raycasting/ft_dda.c raycasting/pos_len_line.c \
+		raycasting/extract_line_tex.c raycasting/draw_line.c handlers/handler_camera.c \
+		handlers/handler_moves.c
 
 INCLUDES = -I ./includes -I ./MLX42/include/MLX42 
 

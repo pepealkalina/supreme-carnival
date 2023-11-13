@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:07:25 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/06 17:10:09 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:01:52 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,24 @@ static int	**ft_xpm_to_intpp(xpm_t *tex)
 	return (tmp);
 }
 
-void	load_textures(t_cub3d *cub3d)
+//recordar sustituir las texturas de prueba por las que se cargan en el parser
+// cub3d->file_parser->north->file
+void	ft_load_textures(t_cub3d *cub3d)
 {
 	cub3d->file_parser->north->tex_xpm = mlx_load_xpm42(
-			cub3d->file_parser->north->file);
+			"./textures/wood42_legion.xpm42");
 	if (!cub3d->file_parser->north->tex_xpm)
 		ft_free_cub3d(cub3d);
 	cub3d->file_parser->south->tex_xpm = mlx_load_xpm42(
-			cub3d->file_parser->south->file);
+			"./textures/green42.xpm42");
 	if (!cub3d->file_parser->south->tex_xpm)
 		ft_free_cub3d(cub3d);
 	cub3d->file_parser->east->tex_xpm = mlx_load_xpm42(
-			cub3d->file_parser->east->file);
+			"./textures/blanc42.xpm42");
 	if (!cub3d->file_parser->east->tex_xpm)
 		ft_free_cub3d(cub3d);
 	cub3d->file_parser->west->tex_xpm = mlx_load_xpm42(
-			cub3d->file_parser->west->file);
+			"./textures/blue42.xpm42");
 	if (!cub3d->file_parser->west->tex_xpm)
 		ft_free_cub3d(cub3d);
 	cub3d->file_parser->north->tex_int = ft_xpm_to_intpp(
