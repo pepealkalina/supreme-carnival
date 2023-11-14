@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:10:13 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:13:53 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ typedef struct s_raycaster
 typedef struct cub3d
 {
 	t_raycaster	raycaster;
-	t_file		*file_parser;
+	t_file		file_parser;
 	char		**file_content;
 	mlx_t		*mlx;
 	mlx_image_t	*img;

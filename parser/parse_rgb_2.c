@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:48:39 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:11:04 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:17:42 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,21 @@ int	ft_checknum(char **rgb)
 
 int	ft_check_is_rgb(const char **colors)
 {
-	int	i;
+	int		i;
+	char	**split;
+	char	**split_splited;
 
 	i = 0;
 	while (colors[i])
 	{
-		if (!ft_checknum(ft_split(ft_split(colors[i], ' ')[1], ',')))
+		split_splited = ft_split(colors[i], ' ');
+		split = ft_split(split_splited[1], ',');
+		if (!ft_checknum(split))
+		{
+			ft_freevpp((void **)split);
+			ft_freevpp((void **)split_splited);
 			return (FALSE);
+		}
 		i++;
 		ft_freevpp((void **)split);
 		ft_freevpp((void **)split_splited);
@@ -62,13 +70,15 @@ static void	ft_save_each(t_rgb *color, char **splited_colors)
 	a = 0xFF;
 	color->hexa = ft_rgba_to_hex(ft_atoi(splited_colors[0]),
 			ft_atoi(splited_colors[1]), ft_atoi(splited_colors[2]), a);
+	ft_freevpp((void **)splited_colors);
 }
 
 void	ft_save_rgb(t_cub3d *cub3d, char **textures)
 {
 	int	i;
-
+	char **split;
 	i = 0;
+
 	while (textures[i])
 	{
 		split = ft_split(textures[i], ' ');

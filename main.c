@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:09:33 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:13:16 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 
 	atexit(&ft_leaks);
 	//cub3d = ft_init_cub3d();
+	char	*map = "        1111111111111111111111111\n        1000000000110000000000001\n        1011000001110000000000001\n        1001000000000000000000001\n111111111011000001110000000000001\n100000000011000001110111111111111\n11110111111111011100000010001\n11110111111111011101010010001\n11000000110101011100000010001\n10000000000000001100000010001\n10000000000000001101010010001\n1100000111010101111101111000111\n11110111 1110101 101111010001\n11111111 1111111 111111111111";
 	if (argc > 2)
 		printf("Error\nToo many arguments");
 	else
@@ -61,10 +62,10 @@ C <red>,<green>,<blue>\n\t\
 F <red>,<green>,<blue>\n"));
 		}
 	}
-	cub3d->raycaster.map = ft_split(map, '\n');
+	cub3d.raycaster.map = ft_split(map, '\n');
 	//ft_parse_map(cub3d);
-	ft_load_textures(cub3d);
-	ft_init_mlx(cub3d);
-	ft_free_cub3d(cub3d);
+	ft_load_textures(&cub3d);
+	ft_init_mlx(&cub3d);
+	ft_free_cub3d(&cub3d);
 	return (0);
 }

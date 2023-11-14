@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:34:20 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:11:12 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:17:23 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,24 @@ int	ft_check_dup_rgb(const char **colors)
 {
 	int	i;
 	int	j;
-
-	i = 0;
+	char **spliti;
+	char **splitj;
+	
+	i = -1;
 	if (!colors)
 		return (FALSE);
-	while (colors[i])
+	while (colors[++i])
 	{
-		j = 0;
-		while (colors[j])
+		j = -1;
+		spliti = ft_split(colors[i], ' ');
+		while (colors[++j])
 		{
-			if (!ft_strncmp(ft_split(colors[i], ' ')[0], \
-				ft_split(colors[j], ' ')[0], 2) && i != j)
+			splitj = ft_split(colors[j], ' ');
+			if (!ft_strncmp(spliti[0], \
+				splitj[0], 2) && i != j)
+			{
+				ft_freevpp((void **)spliti);
+				ft_freevpp((void **)splitj);
 				return (FALSE);
 			}
 			ft_freevpp((void **)splitj);
@@ -38,16 +45,18 @@ int	ft_check_dup_rgb(const char **colors)
 
 static int	ft_check_one_of_each(const char **colors)
 {
-	int	i;
-	int	colors_count;
+	int		i;
+	int		colors_count;
+	char	**split;
 
 	i = 0;
 	colors_count = 0;
 	while (colors[i])
 	{
-		if (!ft_strncmp(ft_split(colors[i], ' ')[0], "F", 2))
+		split = ft_split(colors[i], ' ');
+		if (!ft_strncmp(split[0], "F", 2))
 			colors_count++;
-		if (!ft_strncmp(ft_split(colors[i], ' ')[0], "C", 2))
+		if (!ft_strncmp(split[0], "C", 2))
 			colors_count++;
 		ft_freevpp((void **)split);
 		i++;

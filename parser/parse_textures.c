@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:31 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:11:39 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:17:02 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ char	**ft_search_texture(char **file)
 
 int	ft_check_dup_textures(const char **textures)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	**spliti;
+	char	**splitj;
 
 	i = 0;
 	if (!textures)
@@ -57,10 +59,14 @@ int	ft_check_dup_textures(const char **textures)
 	while (textures[i])
 	{
 		j = 0;
+		spliti = ft_split(textures[i], ' ');
 		while (textures[j])
 		{
-			if (!ft_strncmp(ft_split(textures[i], ' ')[0], \
-				ft_split(textures[j], ' ')[0], 2) && i != j)
+			splitj = ft_split(textures[j], ' ');
+			if (!ft_strncmp(spliti[0], splitj[0], 2) && i != j)
+			{
+				ft_freevpp((void **)spliti);
+				ft_freevpp((void **)splitj);
 				return (FALSE);
 			}
 			ft_freevpp((void **)splitj);
@@ -74,24 +80,28 @@ int	ft_check_dup_textures(const char **textures)
 
 static int	ft_check_one_of_each(const char **textures)
 {
-	int	i;
-	int	textures_count;
+	int		i;
+	int		textures_count;
+	char	**split;
 
-	i = 0;
+	i = -1;
 	textures_count = 0;
-	while (textures[i])
+	while (textures[++i])
 	{
-		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "NO", 2))
+		split = ft_split(textures[i], ' ');
+		if (!ft_strncmp(split[0], "NO", 2))
 			textures_count++;
-		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "SO", 2))
+		if (!ft_strncmp(split[0], "SO", 2))
 			textures_count++;
-		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "WE", 2))
+		if (!ft_strncmp(split[0], "WE", 2))
 			textures_count++;
-		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "EA", 2))
+		if (!ft_strncmp(split[0], "EA", 2))
 			textures_count++;
 		ft_freevpp((void **)split);
 	}
 	if (textures_count < 4)
+	{
+		ft_freevpp((void **)split);
 		return (FALSE);
 	}
 	return (TRUE);
