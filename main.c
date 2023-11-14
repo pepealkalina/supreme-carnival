@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/13 15:15:38 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:18:47 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	ft_free_file(char **file)
 	int	i;
 
 	i = 0;
-	while (file[i++])
+	while (file[i])
 	{
-		if (ft_strlen(file[i]) == 1)
+		if(file[i][0] == '\n')
 			free(file[i]);
+		i++;
 	}
 	free(file);
 }
@@ -34,7 +35,7 @@ int	main(int argc, char **argv)
 {
 	t_cub3d	cub3d;
 
-	//atexit(&ft_leaks);
+	atexit(&ft_leaks);
 	//cub3d = ft_init_cub3d();
 	if (argc > 2)
 		printf("Error\nToo many arguments");

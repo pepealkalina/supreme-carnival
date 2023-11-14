@@ -6,11 +6,27 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:49:07 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/13 15:15:23 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:55:02 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3d.h"
+
+int check_last (char *line)
+{
+	int i;
+
+	i = 0;
+	if (!line)
+		return (FALSE);
+	while (line[i])
+	{
+		if (line[i] != WALL || line[i] != ' ')
+			return (FALSE);
+		i++;
+	}
+	return(true);
+}
 
 int	ft_get_map(t_cub3d *cub3d)
 {
@@ -36,6 +52,8 @@ int	ft_get_start_pos(t_player *start, char **map)
 
 	i = 0;
 	flag = 0;
+	if (!map)
+		return (FALSE);
 	while (map[i])
 	{
 		ft_sub_get_start_pos(start, map[i], &flag, i);
@@ -73,9 +91,7 @@ int	is_map_closed(t_player *start, const char **map)
 					|| map[irow - 1][icol] == ' ' \
 					|| map[irow][icol - 1] == ' ' \
 					|| map[irow + 1][icol] == ' ' \
-					|| map[irow][icol + 1] == ' '
-					|| map[irow][icol + 1] == '\n'\
-					|| map[irow][icol - 1] == '\n')
+					|| map[irow][icol + 1] == ' ')
 					return (0);
 			}
 		}
@@ -83,8 +99,32 @@ int	is_map_closed(t_player *start, const char **map)
 	return (1);
 }
 
+int	ft_is_tile(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (!((map[i][j] == WALL || map[i][j] == VOID)
+				|| (map[i][j] == START_N || map[i][j] == START_S)
+				|| (map[i][j] == START_E || map[i][j] == START_W)
+				|| map[i][j] == ' '))
+				return (FALSE);
+			j++;
+		}
+		i++;
+	}
+	return (TRUE);
+}
 int	ft_is_valid(t_map *map)
 {
+	if (!ft_is_tile(map->map_content))
+		return (FALSE);
 	if (!ft_get_start_pos(&map->start, map->map_content))
 		return (FALSE);
 	if (!is_map_closed(&map->start, (const char **)map->map_content))
@@ -92,35 +132,30 @@ int	ft_is_valid(t_map *map)
 	return (TRUE);
 }
 
-void swap(char **a, char **b)
-{
-	printf("a %s",*a);
-	printf("b %s",*b);
-	char *temp = *a;
-	*a = *b;
-	*b = temp;
-}
 
-void	ft_reverse_map(t_map *map)
+static void ft_reverse_map(t_cub3d *cub3d)
 {
-	int	init;
-	int	end;
+	char **tmp;
+	int	i;
 
-	init = 0;
-	end = ft_pplen(map->map_content);
-	while (init < end)
+	tmp = NULL;
+	i = ft_pplen(cub3d->file_parser.map.map_content) - 1;
+	while(i >= 0)
 	{
-		swap(&map->map_content[init], &map->map_content[end]);
-		init++;
-		end--;
+		tmp = ft_add_pp(ft_strndup2(cub3d->file_parser.map.map_content[i], ft_strlen(cub3d->file_parser.map.map_content[i]) - 1), tmp);
+		i--;
 	}
+	ft_freevpp((void **)cub3d->file_parser.map.map_content);
+	cub3d->file_parser.map.map_content = tmp;
 }
 
 int	ft_parse_map(t_cub3d *cub3d)
 {
 	ft_get_map(cub3d);
-	ft_reverse_map(&cub3d->file_parser.map);
-	ft_printpp(cub3d->file_parser.map.map_content);	
+	if (!cub3d->file_parser.map.map_content)
+		return (FALSE);
+	ft_reverse_map(cub3d);
+	ft_printpp(cub3d->file_parser.map.map_content);
 	if (!ft_is_valid(&cub3d->file_parser.map))
 		return (FALSE);
 	return (TRUE);

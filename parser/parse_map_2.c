@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:47:29 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/13 13:01:09 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:44:52 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,20 @@ char *map, int *flag, int line)
 		return ;
 	while (map[i++])
 	{
-		if (map[i] == START_N || map[i] == START_N
-			|| map[i] == START_N || map[i] == START_N)
+		if (map[i] != VOID)
 		{
-			if (*flag == 0)
+			if (map[i] == START_N || map[i] == START_S
+				|| map[i] == START_E || map[i] == START_W)
 			{
-				start->pos_x = i;
-				start->pos_y = line;
-				start->direction = (char)map[i];
-				map[i] = '0';
+				if (*flag == 0)
+				{
+					start->pos_x = i;
+					start->pos_y = line;
+					start->direction = (char)map[i];
+					map[i] = VOID;
+				}
+				*flag += 1;
 			}
-			*flag += 1;
 		}
 	}
 }
