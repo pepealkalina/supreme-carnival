@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_textures_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:01:51 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:11:22 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:58:07 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	ft_save_each(t_texture *texture, char **splited_texture)
 {
-	texture->direction = ft_strdup(splited_texture[0]);
-	texture->file = ft_strdup(splited_texture[1]);
+	texture->direction = ft_strndup2(splited_texture[0],
+			ft_strlen(splited_texture[0]));
+	texture->file = ft_strndup2(splited_texture[1],
+			ft_strlen(splited_texture[1]) - 1);
 }
 
 void	ft_save_textures(t_cub3d *cub3d, char **textures)
