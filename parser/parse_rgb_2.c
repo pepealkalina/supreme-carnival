@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_rgb_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:48:39 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/06 16:14:56 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:11:04 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	ft_check_is_rgb(const char **colors)
 		if (!ft_checknum(ft_split(ft_split(colors[i], ' ')[1], ',')))
 			return (FALSE);
 		i++;
+		ft_freevpp((void **)split);
+		ft_freevpp((void **)split_splited);
 	}
 	return (TRUE);
 }
@@ -69,12 +71,14 @@ void	ft_save_rgb(t_cub3d *cub3d, char **textures)
 	i = 0;
 	while (textures[i])
 	{
-		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "F", 2))
-			ft_save_each(cub3d->file_parser->floor, \
-			ft_split(ft_split(textures[i], ' ')[1], ','));
-		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "C", 2))
-			ft_save_each(cub3d->file_parser->ceiling, \
-			ft_split(ft_split(textures[i], ' ')[1], ','));
+		split = ft_split(textures[i], ' ');
+		if (!ft_strncmp(split[0], "F", 2))
+			ft_save_each(&cub3d->file_parser.floor, \
+			ft_split(split[1], ','));
+		if (!ft_strncmp(split[0], "C", 2))
+			ft_save_each(&cub3d->file_parser.ceiling, \
+			ft_split(split[1], ','));
+		ft_freevpp((void **)split);
 		i++;
 	}
 }

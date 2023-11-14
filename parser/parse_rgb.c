@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:34:20 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/03 11:19:23 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:11:12 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int	ft_check_dup_rgb(const char **colors)
 			if (!ft_strncmp(ft_split(colors[i], ' ')[0], \
 				ft_split(colors[j], ' ')[0], 2) && i != j)
 				return (FALSE);
-			j++;
+			}
+			ft_freevpp((void **)splitj);
 		}
-		i++;
+		ft_freevpp((void **)spliti);
 	}
 	return (TRUE);
 }
@@ -48,6 +49,7 @@ static int	ft_check_one_of_each(const char **colors)
 			colors_count++;
 		if (!ft_strncmp(ft_split(colors[i], ' ')[0], "C", 2))
 			colors_count++;
+		ft_freevpp((void **)split);
 		i++;
 	}
 	if (colors_count < 2)
@@ -63,6 +65,8 @@ char	**ft_get_rgb(char **file)
 
 	i = 0;
 	saved_text = NULL;
+	if (!file)
+		return (NULL);
 	while (file[i])
 	{
 		j = 0;

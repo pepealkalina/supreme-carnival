@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:31 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/03 11:18:43 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:11:39 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_sub_parse_textures(char ***saved_text, char **file, int i)
 	int	j;
 
 	j = 0;
-	while (file[i][j])
+	while (file && file[i] && file[i][j])
 	{
 		if (file[i][j] == 'N' && file[i][j + 1] == 'O')
 			*saved_text = ft_add_pp(file[i], *saved_text);
@@ -62,8 +62,11 @@ int	ft_check_dup_textures(const char **textures)
 			if (!ft_strncmp(ft_split(textures[i], ' ')[0], \
 				ft_split(textures[j], ' ')[0], 2) && i != j)
 				return (FALSE);
+			}
+			ft_freevpp((void **)splitj);
 			j++;
 		}
+		ft_freevpp((void **)spliti);
 		i++;
 	}
 	return (TRUE);
@@ -86,10 +89,11 @@ static int	ft_check_one_of_each(const char **textures)
 			textures_count++;
 		if (!ft_strncmp(ft_split(textures[i], ' ')[0], "EA", 2))
 			textures_count++;
-		i++;
+		ft_freevpp((void **)split);
 	}
 	if (textures_count < 4)
 		return (FALSE);
+	}
 	return (TRUE);
 }
 

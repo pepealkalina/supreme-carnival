@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:49:40 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/03 15:19:35 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/09 14:17:18 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_strlen(const char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }

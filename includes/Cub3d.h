@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/13 16:42:55 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:10:13 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct s_player
 
 typedef struct s_map
 {
-	t_player	*start;
+	t_player	start;
 	int			max_heigth;
 	int			max_with;
 	char		**map_content;
@@ -82,14 +82,14 @@ typedef struct s_map
 */
 typedef struct s_file
 {
-	t_map		*map;
-	t_texture	*north;
-	t_texture	*south;
-	t_texture	*east;
-	t_texture	*west;
+	t_map		map;
+	t_texture	north;
+	t_texture	south;
+	t_texture	east;
+	t_texture	west;
 
-	t_rgb		*floor;
-	t_rgb		*ceiling;
+	t_rgb		floor;
+	t_rgb		ceiling;
 	int			file_lines;
 }t_file;
 
@@ -386,6 +386,7 @@ void	ft_save_textures(t_cub3d *cub3d, char **textures);
 int		ft_chec_if_cub(char *file);
 int		ft_parse_map(t_cub3d *cub3d);
 void	ft_sub_get_start_pos(t_player *start, \
-		const char *map, int *flag, int line);
+		char *map, int *flag, int line);
+int		ft_sub_is_closed(char *line, char **map, int nline);
 
 #endif

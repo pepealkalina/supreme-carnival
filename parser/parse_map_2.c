@@ -6,14 +6,14 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:47:29 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/03 15:27:33 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:10:50 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3d.h"
 
 void	ft_sub_get_start_pos(t_player *start, \
-const char *map, int *flag, int line)
+char *map, int *flag, int line)
 {
 	int	i;
 
@@ -22,16 +22,20 @@ const char *map, int *flag, int line)
 		return ;
 	while (map[i++])
 	{
-		if (map[i] == START_N || map[i] == START_N
-			|| map[i] == START_N || map[i] == START_N)
+		if (map[i] != VOID)
 		{
-			if (*flag == 0)
+			if (map[i] == START_N || map[i] == START_S
+				|| map[i] == START_E || map[i] == START_W)
 			{
-				start->pos_x = i;
-				start->pos_y = line;
-				start->direction = (char)map[i];
+				if (*flag == 0)
+				{
+					start->pos_x = i;
+					start->pos_y = line;
+					start->direction = (char)map[i];
+					map[i] = VOID;
+				}
+				*flag += 1;
 			}
-			*flag += 1;
 		}
 	}
 }

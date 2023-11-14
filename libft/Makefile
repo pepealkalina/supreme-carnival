@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
+#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/23 10:08:21 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/01 15:00:34 by paescano         ###   ########.fr        #
+#    Updated: 2023/11/09 14:15:57 by preina-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ BONUSOBJ = $(BONUSSRC:.c=.o)
 
 CC = gcc
 
-CCFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 
