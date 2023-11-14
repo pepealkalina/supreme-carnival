@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 17:07:11 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/14 16:55:28 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:17:28 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ void	ft_raycasting(t_cub3d *cub3d)
 		ft_calculate_draw_line(cub3d, pixel);
 		pixel++;
 	}
+	//ft_draw_minimap(cub3d);
 }

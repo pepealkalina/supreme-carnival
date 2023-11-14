@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:30:18 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/13 15:12:48 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:21:01 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,16 @@ static void	ft_set_orientation_west(t_cub3d *cub3d)
 	cub3d->raycaster.plane_y = -0.66;
 }
 
-/*para este punto hay que tener el mapa con la dirección del jugador 
-sustituida por un 0, sustituir luego los valores por los buenos*/
 void	ft_init_player(t_cub3d *cub3d)
 {
-	char	c;
-
-	c = 'W';
-	cub3d->raycaster.player_x = 26 + 0.5;
-	cub3d->raycaster.player_y = 3 + 0.5;
-	if (c == 'N')
+	cub3d->raycaster.player_x = cub3d->file_parser.map.start.pos_x + 0.5;
+	cub3d->raycaster.player_y = cub3d->file_parser.map.start.pos_y + 0.5;
+	if (cub3d->file_parser.map.start.direction == 'N')
 		ft_set_orientation_north(cub3d);
-	else if (c == 'S')
+	else if (cub3d->file_parser.map.start.direction == 'S')
 		ft_set_orientation_south(cub3d);
-	else if (c == 'E')
+	else if (cub3d->file_parser.map.start.direction == 'E')
 		ft_set_orientation_east(cub3d);
-	else if (c == 'W')
+	else if (cub3d->file_parser.map.start.direction == 'W')
 		ft_set_orientation_west(cub3d);
 }
