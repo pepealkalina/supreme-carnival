@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:13:16 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:01:28 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,5 @@ F <red>,<green>,<blue>\n"));
 	//ft_parse_map(cub3d);
 	ft_load_textures(&cub3d);
 	ft_init_mlx(&cub3d);
-	ft_free_cub3d(&cub3d);
 	return (0);
 }
