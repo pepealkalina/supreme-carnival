@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:49:07 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/15 12:03:51 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:41:56 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,86 +70,6 @@ int	is_in_border(char **map, int row, int col)
 		|| row == ft_pplen(map) - 1 || col == ft_strlen(map[row]) - 1)
 		return (FALSE);
 	return (TRUE);
-}
-
-int	is_map_closed(t_player *start, const char **map)
-{
-	int	irow;
-	int	icol;
-
-	if (!is_in_border((char **)map, start->pos_x, start->pos_y))
-		return (0);
-	irow = -1;
-	while (++irow < ft_pplen((char **)map) - 1)
-	{
-		icol = -1;
-		while (++icol < ft_strlen(map[irow]))
-		{
-			if (map[irow][icol] == VOID)
-			{
-				if (!is_in_border((char **)map, irow, icol) \
-					|| map[irow - 1][icol] == ' ' \
-					|| map[irow][icol - 1] == ' ' \
-					|| map[irow + 1][icol] == ' ' \
-					|| map[irow][icol + 1] == ' ')
-					return (0);
-			}
-		}
-	}
-	return (1);
-}
-
-int	ft_is_tile(char **map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			if (!((map[i][j] == WALL || map[i][j] == VOID)
-				|| (map[i][j] == START_N || map[i][j] == START_S)
-				|| (map[i][j] == START_E || map[i][j] == START_W)
-				|| map[i][j] == ' '))
-				return (FALSE);
-			j++;
-		}
-		i++;
-	}
-	return (TRUE);
-}
-
-int	ft_is_valid(t_cub3d *cub3d, t_map *map)
-{
-	if (!ft_is_tile(cub3d->raycaster.map))
-		return (FALSE);
-	if (!ft_get_start_pos(&map->start, cub3d->raycaster.map))
-		return (FALSE);
-	if (!is_map_closed(&map->start, (const char **)cub3d->raycaster.map))
-		return (FALSE);
-	return (TRUE);
-}
-
-static void	ft_reverse_map(t_cub3d *cub3d)
-{
-	char	**tmp;
-	int		i;
-
-	tmp = NULL;
-	i = ft_pplen(cub3d->file_parser.map.map_content) - 1;
-	while (i > 0)
-	{
-		tmp = ft_add_pp(ft_strndup2(cub3d->file_parser.map.map_content[i],
-					ft_strlen(cub3d->file_parser.map.map_content[i]) - 1), tmp);
-		i--;
-	}
-	tmp = ft_add_pp(ft_strndup2(cub3d->file_parser.map.map_content[0],
-				ft_strlen(cub3d->file_parser.map.map_content[0])), tmp);
-	ft_freevpp((void **)cub3d->file_parser.map.map_content);
-	cub3d->raycaster.map = tmp;
 }
 
 int	ft_parse_map(t_cub3d *cub3d)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:40:13 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/14 16:56:08 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:09:29 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_free_cub3d(t_cub3d *cub3d)
 {
-	free(cub3d);
+	(void)cub3d;
 	exit(EXIT_SUCCESS);
 }
 

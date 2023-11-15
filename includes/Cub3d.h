@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/15 11:51:54 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:52:49 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -411,8 +411,13 @@ void	ft_save_rgb(t_cub3d *cub3d, char **textures);
 void	ft_save_textures(t_cub3d *cub3d, char **textures);
 int		ft_chec_if_cub(char *file);
 int		ft_parse_map(t_cub3d *cub3d);
+int		ft_get_start_pos(t_player *start, char **map);
 void	ft_sub_get_start_pos(t_player *start, \
 		char *map, int *flag, int line);
 int		ft_sub_is_closed(char *line, char **map, int nline);
-
+void	ft_reverse_map(t_cub3d *cub3d);
+int		ft_is_valid(t_cub3d *cub3d, t_map *map);
+int		ft_is_tile(char **map);
+int		is_map_closed(t_player *start, const char **map);
+int		is_in_border(char **map, int row, int col);
 #endif

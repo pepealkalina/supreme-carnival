@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:34:20 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:17:23 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:26:59 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	ft_check_dup_rgb(const char **colors)
 {
-	int	i;
-	int	j;
-	char **spliti;
-	char **splitj;
-	
+	int		i;
+	int		j;
+	char	**spliti;
+	char	**splitj;
+
 	i = -1;
 	if (!colors)
 		return (FALSE);
@@ -29,13 +29,9 @@ int	ft_check_dup_rgb(const char **colors)
 		while (colors[++j])
 		{
 			splitj = ft_split(colors[j], ' ');
-			if (!ft_strncmp(spliti[0], \
-				splitj[0], 2) && i != j)
-			{
-				ft_freevpp((void **)spliti);
-				ft_freevpp((void **)splitj);
-				return (FALSE);
-			}
+			if (!ft_strncmp(spliti[0], splitj[0], 2) && i != j)
+				return (ft_freevpp((void **)splitj), \
+					ft_freevpp((void **)spliti), FALSE);
 			ft_freevpp((void **)splitj);
 		}
 		ft_freevpp((void **)spliti);
@@ -98,11 +94,11 @@ int	ft_parse_rgb(t_cub3d *cub3d)
 
 	colors = ft_get_rgb(cub3d->file_content);
 	if (!ft_check_dup_rgb((const char **)colors))
-		return (FALSE);
+		return (ft_freevpp((void **)colors), FALSE);
 	if (!ft_check_one_of_each((const char **)colors))
-		return (FALSE);
+		return (ft_freevpp((void **)colors), FALSE);
 	if (!ft_check_is_rgb((const char **)colors))
-		return (FALSE);
+		return (ft_freevpp((void **)colors), FALSE);
 	ft_save_rgb(cub3d, colors);
 	ft_freevpp((void **)colors);
 	return (TRUE);

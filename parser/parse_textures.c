@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:31 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:17:02 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:27:24 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,8 @@ int	ft_check_dup_textures(const char **textures)
 		{
 			splitj = ft_split(textures[j], ' ');
 			if (!ft_strncmp(spliti[0], splitj[0], 2) && i != j)
-			{
-				ft_freevpp((void **)spliti);
-				ft_freevpp((void **)splitj);
-				return (FALSE);
-			}
+				return (ft_freevpp((void **)splitj), \
+					ft_freevpp((void **)spliti), FALSE);
 			ft_freevpp((void **)splitj);
 			j++;
 		}
@@ -78,7 +75,7 @@ int	ft_check_dup_textures(const char **textures)
 	return (TRUE);
 }
 
-static int	ft_check_one_of_each(const char **textures)
+int	ft_check_one_of_each(const char **textures)
 {
 	int		i;
 	int		textures_count;
@@ -99,11 +96,8 @@ static int	ft_check_one_of_each(const char **textures)
 			textures_count++;
 		ft_freevpp((void **)split);
 	}
-	if (textures_count < 4)
-	{
-		ft_freevpp((void **)split);
+	if (textures_count != 4)
 		return (FALSE);
-	}
 	return (TRUE);
 }
 
@@ -113,9 +107,9 @@ int	ft_parse_textures(t_cub3d *cub3d)
 
 	textures = ft_search_texture(cub3d->file_content);
 	if (!ft_check_dup_textures((const char **)textures))
-		return (FALSE);
+		return (ft_freevpp((void **)textures), FALSE);
 	if (!ft_check_one_of_each((const char **)textures))
-		return (FALSE);
+		return (ft_freevpp((void **)textures), FALSE);
 	ft_save_textures(cub3d, textures);
 	ft_freevpp((void **)textures);
 	return (TRUE);

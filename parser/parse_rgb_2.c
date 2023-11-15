@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:48:39 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:17:42 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:42:27 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ static void	ft_save_each(t_rgb *color, char **splited_colors)
 
 void	ft_save_rgb(t_cub3d *cub3d, char **textures)
 {
-	int	i;
-	char **split;
-	i = 0;
+	int		i;
+	char	**split;
 
+	i = 0;
 	while (textures[i])
 	{
 		split = ft_split(textures[i], ' ');
