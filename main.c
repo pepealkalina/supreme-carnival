@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 17:17:36 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:00:22 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,8 @@ F <red>,<green>,<blue>\n"));
 	}
 	//ft_init_mlx(&cub3d);
 	ft_free_file(cub3d.file_content);
-	ft_printpp(cub3d.file_parser.map.map_content);
-
+	ft_printpp(cub3d.raycaster.map);
 	//cub3d.raycaster.map = ft_split(map, '\n');
-	cub3d.raycaster.map = cub3d.file_parser.map.map_content;
-	//ft_parse_map(cub3d);
 	ft_load_textures(&cub3d);
 	ft_init_mlx(&cub3d);
 	return (0);

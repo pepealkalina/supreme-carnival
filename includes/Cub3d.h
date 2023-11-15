@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 17:18:33 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/15 11:51:54 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,20 @@
 /*define movement speed*/
 # define MOVE_SPEED 0.1
 # define ROTATION_SPEED 0.07
+
+/*Colors*/
+# define BLACK 0x000000FF
+# define WHITE 0xFFFFFFFF
+# define RED 0xFF0000FF
+
+typedef struct s_minimap
+{
+	int		top_left_x;
+	int		top_left_y;
+	int		bottom_right_x;
+	int		bottom_right_y;
+	int		color;
+}t_minimap;
 
 /*
 	t_rgb -> define rgb colors in floor and ceiling
@@ -124,6 +138,7 @@ typedef struct s_raycaster
 
 typedef struct cub3d
 {
+	t_minimap	minimap;
 	t_raycaster	raycaster;
 	t_file		file_parser;
 	char		**file_content;
@@ -373,6 +388,17 @@ void	ft_move_left(t_cub3d *cub3d);
  * @param cub3d struct data
  */
 void	ft_move_right(t_cub3d *cub3d);
+
+/****************************************/
+/*			BONUS						*/
+/****************************************/
+
+/**
+ * @brief draw the minimap
+ * 
+ * @param cub3d struct data
+ */
+void	ft_draw_minimap(t_cub3d *cub3d);
 
 /****************************************/
 /*			POR CLASIFICAR				*/

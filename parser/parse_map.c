@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:49:07 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/14 16:08:11 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:03:51 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3d.h"
 
-int check_last (char *line)
+int	check_last(char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!line)
@@ -25,7 +25,7 @@ int check_last (char *line)
 			return (FALSE);
 		i++;
 	}
-	return(true);
+	return (true);
 }
 
 int	ft_get_map(t_cub3d *cub3d)
@@ -121,32 +121,35 @@ int	ft_is_tile(char **map)
 	}
 	return (TRUE);
 }
-int	ft_is_valid(t_map *map)
+
+int	ft_is_valid(t_cub3d *cub3d, t_map *map)
 {
-	if (!ft_is_tile(map->map_content))
+	if (!ft_is_tile(cub3d->raycaster.map))
 		return (FALSE);
-	if (!ft_get_start_pos(&map->start, map->map_content))
+	if (!ft_get_start_pos(&map->start, cub3d->raycaster.map))
 		return (FALSE);
-	if (!is_map_closed(&map->start, (const char **)map->map_content))
+	if (!is_map_closed(&map->start, (const char **)cub3d->raycaster.map))
 		return (FALSE);
 	return (TRUE);
 }
 
-
-static void ft_reverse_map(t_cub3d *cub3d)
+static void	ft_reverse_map(t_cub3d *cub3d)
 {
-	char **tmp;
-	int	i;
+	char	**tmp;
+	int		i;
 
 	tmp = NULL;
 	i = ft_pplen(cub3d->file_parser.map.map_content) - 1;
-	while(i >= 0)
+	while (i > 0)
 	{
-		tmp = ft_add_pp(ft_strndup2(cub3d->file_parser.map.map_content[i], ft_strlen(cub3d->file_parser.map.map_content[i]) - 1), tmp);
+		tmp = ft_add_pp(ft_strndup2(cub3d->file_parser.map.map_content[i],
+					ft_strlen(cub3d->file_parser.map.map_content[i]) - 1), tmp);
 		i--;
 	}
+	tmp = ft_add_pp(ft_strndup2(cub3d->file_parser.map.map_content[0],
+				ft_strlen(cub3d->file_parser.map.map_content[0])), tmp);
 	ft_freevpp((void **)cub3d->file_parser.map.map_content);
-	cub3d->file_parser.map.map_content = tmp;
+	cub3d->raycaster.map = tmp;
 }
 
 int	ft_parse_map(t_cub3d *cub3d)
@@ -155,8 +158,7 @@ int	ft_parse_map(t_cub3d *cub3d)
 	if (!cub3d->file_parser.map.map_content)
 		return (FALSE);
 	ft_reverse_map(cub3d);
-	ft_printpp(cub3d->file_parser.map.map_content);
-	if (!ft_is_valid(&cub3d->file_parser.map))
+	if (!ft_is_valid(cub3d, &cub3d->file_parser.map))
 		return (FALSE);
 	return (TRUE);
 }
