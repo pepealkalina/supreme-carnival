@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:07:25 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/14 17:04:18 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:46:08 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,24 @@ static int	**ft_xpm_to_intpp(xpm_t *tex)
 	return (tmp);
 }
 
-//recordar sustituir las texturas de prueba por las que se cargan en el parser
-// cub3d->file_parser->north->file
 void	ft_load_textures(t_cub3d *cub3d)
 {
 	cub3d->file_parser.north.tex_xpm = mlx_load_xpm42(
 			cub3d->file_parser.north.file);
 	if (!cub3d->file_parser.north.tex_xpm)
-		ft_free_cub3d(cub3d);
+		ft_exit(ERROR_TEXTURES);
 	cub3d->file_parser.south.tex_xpm = mlx_load_xpm42(
 			cub3d->file_parser.south.file);
 	if (!cub3d->file_parser.south.tex_xpm)
-		ft_free_cub3d(cub3d);
+		ft_exit(ERROR_TEXTURES2);
 	cub3d->file_parser.east.tex_xpm = mlx_load_xpm42(
 			cub3d->file_parser.east.file);
 	if (!cub3d->file_parser.east.tex_xpm)
-		ft_free_cub3d(cub3d);
+		ft_exit(ERROR_TEXTURES4);
 	cub3d->file_parser.west.tex_xpm = mlx_load_xpm42(
 			cub3d->file_parser.west.file);
 	if (!cub3d->file_parser.west.tex_xpm)
-		ft_free_cub3d(cub3d);
+		ft_exit(ERROR_TEXTURES3);
 	cub3d->file_parser.north.tex_int = ft_xpm_to_intpp(
 			cub3d->file_parser.north.tex_xpm);
 	cub3d->file_parser.south.tex_int = ft_xpm_to_intpp(

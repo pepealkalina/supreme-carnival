@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/15 12:52:49 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:44:43 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,19 +201,19 @@ char	**ft_ppdup(char **pp);
 void	ft_init_mlx(t_cub3d *cub3d);
 
 /**
- * @brief free the memory of cub3d
- * 
- * @param cub3d data struct
- */
-void	ft_free_cub3d(t_cub3d *cub3d);
-
-/**
  * @brief erase the image, close the window and free the memory
  * of cub3d
  * 
  * @param cub3d data struct
  */
 void	ft_exit_mlx(t_cub3d *cub3d);
+
+/**
+ * @brief print a string and exit the program
+ * 
+ * @param str string to free
+ */
+void	ft_exit(char *str);
 
 /**
  * @brief convert a rgba color to hex color

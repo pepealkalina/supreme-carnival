@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/15 13:09:02 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:45:40 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/Cub3d.h"
 
-void	ft_free_file(char **file)
+static void	ft_free_file(char **file)
 {
 	int	i;
 
@@ -37,26 +37,16 @@ int	main(int argc, char **argv)
 
 	atexit(ft_leaks);
 	if (argc > 2)
-		printf("Error\nToo many arguments");
-	else
-	{
-		if (!ft_file_set_up(&cub3d, argv))
-			exit(printf("Error\n[-]Wrong file format\n"));
-		if (!ft_parse_textures(&cub3d))
-			exit(printf("Error\n[-]Wrong textures Format!!\n[!]The correct Format is:\n\t\
-NO <texture_path>\n\t\
-SO <texture_path>\n\t\
-EA <texture_path>\n\t\
-WE <texture_path>\n"));
-		if (!ft_parse_rgb(&cub3d))
-			exit(printf("Error\n[-]Wrong RGB Format!!\n[!]The correct Format is:\n\t\
-C <red>,<green>,<blue>\n\t\
-F <red>,<green>,<blue>\n"));
-	}
+		ft_exit(ERROR_ARGS);
+	if (!ft_file_set_up(&cub3d, argv))
+		ft_exit(ERROR_FILE);
+	if (!ft_parse_textures(&cub3d))
+		ft_exit(ERROR_TX ERROR_TX2 ERROR_TX3 ERROR_TX4);
+	if (!ft_parse_rgb(&cub3d))
+		ft_exit(ERROR_RGB ERROR_RGB2 ERROR_RGB3);
 	if (!ft_parse_map(&cub3d))
-		exit(printf("Error\n[-]Wrong Map Format!!"));
+		ft_exit(ERROR_MAP);
 	ft_free_file(cub3d.file_content);
-	ft_printpp(cub3d.raycaster.map);
 	ft_load_textures(&cub3d);
 	ft_init_mlx(&cub3d);
 }
