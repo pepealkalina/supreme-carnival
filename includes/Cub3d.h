@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/15 17:44:43 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/18 17:09:00 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define HEIGHT 720
 
 /*define movement speed*/
-# define MOVE_SPEED 0.1
+# define MOVE_SPEED 0.11
 # define ROTATION_SPEED 0.07
 
 /*Colors*/

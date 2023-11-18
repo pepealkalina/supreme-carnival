@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_rgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:34:20 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/15 13:26:59 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/18 17:05:08 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ static int	ft_check_one_of_each(const char **colors)
 	while (colors[i])
 	{
 		split = ft_split(colors[i], ' ');
-		if (!ft_strncmp(split[0], "F", 2))
+		if (!ft_strncmp(split[0], "F", 2) && ft_pplen(split) == 2)
 			colors_count++;
-		if (!ft_strncmp(split[0], "C", 2))
+		if (!ft_strncmp(split[0], "C", 2) && ft_pplen(split) == 2)
 			colors_count++;
 		ft_freevpp((void **)split);
 		i++;
