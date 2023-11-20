@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	t_cub3d	cub3d;
 
 	atexit(ft_leaks);
-	if (argc > 2)
+	if (argc != 2)
 		ft_exit(ERROR_ARGS);
 	if (!ft_file_set_up(&cub3d, argv))
 		ft_exit(ERROR_FILE);
