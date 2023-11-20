@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:49:07 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/15 12:41:56 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/20 16:29:57 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int	ft_parse_map(t_cub3d *cub3d)
 	if (!cub3d->file_parser.map.map_content)
 		return (FALSE);
 	ft_reverse_map(cub3d);
+	ft_fill_map(cub3d);
 	if (!ft_is_valid(cub3d, &cub3d->file_parser.map))
 		return (FALSE);
 	return (TRUE);

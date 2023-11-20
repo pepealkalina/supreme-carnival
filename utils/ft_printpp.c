@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:17:20 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/15 12:04:03 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:33:55 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_printpp(char **pp)
 	{
 		while (pp[j])
 		{
-			printf("pp[%d]: %s\n", j, pp[j]);
+			printf("pp[%d]: %s|\n", j, pp[j]);
 			j++;
 		}
 	}

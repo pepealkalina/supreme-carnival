@@ -6,7 +6,7 @@
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/18 17:09:00 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:41:22 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define HEIGHT 720
 
 /*define movement speed*/
-# define MOVE_SPEED 0.11
+# define MOVE_SPEED 0.15
 # define ROTATION_SPEED 0.07
 
 /*Colors*/
@@ -403,8 +403,15 @@ void	ft_draw_minimap(t_cub3d *cub3d);
 /****************************************/
 /*			POR CLASIFICAR				*/
 /****************************************/
+
+/**
+ * @brief fill the map with spaces to make it a square
+ * 
+ * @param cub3d struct data
+ */
+void	ft_fill_map(t_cub3d *cub3d);
+
 int		ft_parse_textures(t_cub3d *cub3d);
-t_cub3d	*ft_init_cub3d(void);
 int		ft_parse_rgb(t_cub3d *cub3d);
 int		ft_check_is_rgb(const char **colors);
 void	ft_save_rgb(t_cub3d *cub3d, char **textures);
@@ -414,7 +421,6 @@ int		ft_parse_map(t_cub3d *cub3d);
 int		ft_get_start_pos(t_player *start, char **map);
 void	ft_sub_get_start_pos(t_player *start, \
 		char *map, int *flag, int line);
-int		ft_sub_is_closed(char *line, char **map, int nline);
 void	ft_reverse_map(t_cub3d *cub3d);
 int		ft_is_valid(t_cub3d *cub3d, t_map *map);
 int		ft_is_tile(char **map);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/15 13:01:38 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/20 16:29:37 by paescano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CFILES = main.c utils/ft_free.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_free
 		handlers/handler_textures.c inits/init_player.c raycasting/raycasting.c \
 		raycasting/pos_len_ray.c raycasting/ft_dda.c raycasting/pos_len_line.c \
 		raycasting/extract_line_tex.c raycasting/draw_line.c handlers/handler_camera.c \
-		handlers/handler_moves.c handlers/handler_minimap_bonus.c
+		handlers/handler_moves.c handlers/handler_minimap_bonus.c parser/parse_map_3.c
 
 CFILES_BONUS = bonus/main_bonus.c 
 
