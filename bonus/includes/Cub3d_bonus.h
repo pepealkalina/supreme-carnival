@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cub3d.h                                            :+:      :+:    :+:   */
+/*   Cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/21 12:40:46 by paescano         ###   ########.fr       */
+/*   Created: 2023/11/21 12:30:06 by paescano          #+#    #+#             */
+/*   Updated: 2023/11/21 12:31:34 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h> 
 # include <string.h>
 # include <math.h>
-# include "../libft/libft.h"
-# include "../MLX42/include/MLX42/MLX42.h"
-# include "error_messages.h"
+# include "../../libft/libft.h"
+# include "../../MLX42/include/MLX42/MLX42.h"
+# include "error_messages_bonus.h"
 
 /*define a bool*/
 # define TRUE 1
@@ -388,6 +388,17 @@ void	ft_move_left(t_cub3d *cub3d);
  * @param cub3d struct data
  */
 void	ft_move_right(t_cub3d *cub3d);
+
+/****************************************/
+/*			BONUS						*/
+/****************************************/
+
+/**
+ * @brief draw the minimap
+ * 
+ * @param cub3d struct data
+ */
+void	ft_draw_minimap(t_cub3d *cub3d);
 
 /****************************************/
 /*			PARSER						*/

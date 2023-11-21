@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.c                                       :+:      :+:    :+:   */
+/*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 17:07:11 by paescano          #+#    #+#             */
-/*   Updated: 2023/11/21 12:40:16 by paescano         ###   ########.fr       */
+/*   Created: 2023/11/21 12:13:15 by paescano          #+#    #+#             */
+/*   Updated: 2023/11/21 12:13:29 by paescano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cub3d.h"
+#include "Cub3d_bonus.h"
 
 static void	ft_calculate_draw_line(t_cub3d *cub3d, int pixel)
 {
@@ -59,4 +59,5 @@ void	ft_raycasting(t_cub3d *cub3d)
 		ft_calculate_draw_line(cub3d, pixel);
 		pixel++;
 	}
+	ft_draw_minimap(cub3d);
 }

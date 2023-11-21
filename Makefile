@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/21 12:36:29 by preina-g         ###   ########.fr        #
+#    Updated: 2023/11/21 12:42:33 by paescano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,16 +30,18 @@ CFILES = main.c utils/ft_free.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_free
 		handlers/handler_textures.c inits/init_player.c raycasting/raycasting.c \
 		raycasting/pos_len_ray.c raycasting/ft_dda.c raycasting/pos_len_line.c \
 		raycasting/extract_line_tex.c raycasting/draw_line.c handlers/handler_camera.c \
-		handlers/handler_moves.c handlers/handler_minimap_bonus.c parser/parse_map_3.c
+		handlers/handler_moves.c parser/parse_map_3.c
 
-CFILES_BONUS = main_bonus.c utils/ft_free_bonus.c utils/ft_add_pp_bonus.c utils/ft_pplen_bonus.c utils/ft_freepp_bonus.c \
-		checker/open_file_bonus.c parser/parse_textures_bonus.c parser/parse_textures_2_bonus.c parser/parse_rgb_bonus.c \
-		parser/parse_rgb_2_bonus.c parser/parse_cub_bonus.c inits/init_mlx_bonus.c handlers/handler_background_bonus.c \
-		parser/parse_map_bonus.c parser/parse_map_2_bonus.c utils/ft_printpp_bonus.c utils/ft_ppdup_bonus.c \
-		handlers/handler_textures_bonus.c inits/init_player_bonus.c raycasting/raycasting_bonus.c \
-		raycasting/pos_len_ray_bonus.c raycasting/ft_dda_bonus.c raycasting/pos_len_line_bonus.c \
-		raycasting/extract_line_tex_bonus.c raycasting/draw_line_bonus.c handlers/handler_camera_bonus.c \
-		handlers/handler_moves_bonus.c handlers/handler_minimap_bonus.c parser/parse_map_3_bonus.c
+CFILES_BONUS = bonus/main_bonus.c bonus/utils/ft_free_bonus.c bonus/utils/ft_add_pp_bonus.c \
+		bonus/utils/ft_pplen_bonus.c bonus/utils/ft_freepp_bonus.c bonus/checker/open_file_bonus.c \
+		bonus/parser/parse_textures_bonus.c bonus/parser/parse_textures_2_bonus.c bonus/parser/parse_rgb_bonus.c \
+		bonus/parser/parse_rgb_2_bonus.c bonus/parser/parse_cub_bonus.c bonus/inits/init_mlx_bonus.c \
+		bonus/handlers/handler_background_bonus.c bonus/parser/parse_map_bonus.c bonus/parser/parse_map_2_bonus.c \
+		bonus/utils/ft_printpp_bonus.c bonus/utils/ft_ppdup_bonus.c bonus/handlers/handler_textures_bonus.c \
+		bonus/inits/init_player_bonus.c bonus/raycasting/raycasting_bonus.c bonus/raycasting/pos_len_ray_bonus.c \
+		bonus/raycasting/ft_dda_bonus.c bonus/raycasting/pos_len_line_bonus.c bonus/raycasting/extract_line_tex_bonus.c \
+		bonus/raycasting/draw_line_bonus.c bonus/handlers/handler_camera_bonus.c bonus/handlers/handler_moves_bonus.c \
+		bonus/handlers/handler_minimap_bonus.c bonus/parser/parse_map_3_bonus.c
 
 INCLUDES = -I ./includes -I ./MLX42/include/MLX42
 
@@ -48,6 +50,8 @@ INCLUDES_BONUS = -I ./bonus/includes -I ./MLX42/include/MLX42
 LIBS = libft/libft.a MLX42/libmlx42.a -ldl -lglfw -pthread -lm -L"/Users/$(USER)/.brew/opt/glfw/lib/"
 
 OBJECTS = $(CFILES:.c=.o)
+
+OBJECTS_BONUS = $(CFILES_BONUS:.c=.o)
 
 %.o : %.c
 	@echo $(Y)Compiling [$<]...$(X)
