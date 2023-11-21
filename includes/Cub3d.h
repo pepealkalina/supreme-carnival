@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:54 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/20 18:41:22 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:13:03 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -401,7 +401,7 @@ void	ft_move_right(t_cub3d *cub3d);
 void	ft_draw_minimap(t_cub3d *cub3d);
 
 /****************************************/
-/*			POR CLASIFICAR				*/
+/*			PARSER						*/
 /****************************************/
 
 /**
@@ -411,19 +411,111 @@ void	ft_draw_minimap(t_cub3d *cub3d);
  */
 void	ft_fill_map(t_cub3d *cub3d);
 
+/**
+ * @brief parse textures for it use
+ * 
+ * @param cub3d struct data
+ */
 int		ft_parse_textures(t_cub3d *cub3d);
+
+/**
+ * @brief parse rgb for it use
+ * 
+ * @param cub3d struct data
+ */
 int		ft_parse_rgb(t_cub3d *cub3d);
+
+/**
+ * @brief check if is a rgb color
+ * 
+ * @param colors colors for check
+ */
 int		ft_check_is_rgb(const char **colors);
+
+/**
+ * @brief save rgb
+ * 
+ * @param cub3d struct data
+ * @param textures colors for save
+ */
 void	ft_save_rgb(t_cub3d *cub3d, char **textures);
+
+/**
+ * @brief save textures for the use
+ * 
+ * @param cub3d struct data
+ * @param textures textures for save
+ */
 void	ft_save_textures(t_cub3d *cub3d, char **textures);
+
+/**
+ * @brief chek if the file is a .cub
+ * 
+ * @param file the file for chek
+ */
 int		ft_chec_if_cub(char *file);
+/**
+ * @brief parse map for it use
+ * 
+ * @param cub3d struct data
+ */
 int		ft_parse_map(t_cub3d *cub3d);
+
+/**
+ * @brief get the start position
+ * 
+ * @param start struct data
+ * @param map map for check
+ */
 int		ft_get_start_pos(t_player *start, char **map);
+
+/**
+ * @brief aux fun for get map pos
+ * 
+ * @param start struct data
+ * @param map line map for check
+ * @param flag checker flag
+ * @param line number of the line
+ */
 void	ft_sub_get_start_pos(t_player *start, \
 		char *map, int *flag, int line);
+
+/**
+ * @brief reverse the map to parse it correctly
+ * 
+ * @param cub3d struct data
+ */
 void	ft_reverse_map(t_cub3d *cub3d);
+
+/**
+ * @brief check if the map is valid
+ * 
+ * @param cub3d struct data
+ * @param map map for check
+ */
 int		ft_is_valid(t_cub3d *cub3d, t_map *map);
+
+/**
+ * @brief check if is a valid tile
+ * 
+ * @param map map for check
+ */
 int		ft_is_tile(char **map);
+
+/**
+ * @brief check if the map is closed
+ * 
+ * @param start struct data
+ * @param map map for check
+ */
 int		is_map_closed(t_player *start, const char **map);
+
+/**
+ * @brief check if the tile is a border
+ * 
+ * @param map map for check
+ * @param row the map row
+ * @param col map col
+ */
 int		is_in_border(char **map, int row, int col);
 #endif
