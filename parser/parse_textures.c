@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:00:31 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/15 13:27:24 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/21 10:50:18 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	ft_sub_parse_textures(char ***saved_text, char **file, int i)
 	j = 0;
 	while (file && file[i] && file[i][j])
 	{
-		if (file[i][j] == 'N' && file[i][j + 1] == 'O')
+		if (file[i][j] == 'N' && file[i][j + 1] == 'O' && file[i][j + 2] == ' ')
 			*saved_text = ft_add_pp(file[i], *saved_text);
-		if (file[i][j] == 'S' && file[i][j + 1] == 'O')
+		if (file[i][j] == 'S' && file[i][j + 1] == 'O' && file[i][j + 2] == ' ')
 			*saved_text = ft_add_pp(file[i], *saved_text);
-		if (file[i][j] == 'W' && file[i][j + 1] == 'E')
+		if (file[i][j] == 'W' && file[i][j + 1] == 'E' && file[i][j + 2] == ' ')
 			*saved_text = ft_add_pp(file[i], *saved_text);
-		if (file[i][j] == 'E' && file[i][j + 1] == 'A')
+		if (file[i][j] == 'E' && file[i][j + 1] == 'A' && file[i][j + 2] == ' ')
 			*saved_text = ft_add_pp(file[i], *saved_text);
 		j++;
 	}

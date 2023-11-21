@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paescano <paescano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:49:07 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/20 16:29:57 by paescano         ###   ########.fr       */
+/*   Updated: 2023/11/21 10:48:33 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	ft_get_map(t_cub3d *cub3d)
 	cub3d->file_parser.file_lines = ft_pplen(cub3d->file_content);
 	i = cub3d->file_parser.file_lines - 1;
 	while (cub3d->file_content[i] \
-	[ft_strlen(cub3d->file_content[i]) - 2] == WALL)
+	[ft_strlen(cub3d->file_content[i]) - 2] == WALL || cub3d->file_content[i] \
+	[ft_strlen(cub3d->file_content[i]) - 2] == ' ')
 	{
 		cub3d->file_parser.map.map_content = \
 		ft_add_pp(cub3d->file_content[i], cub3d->file_parser.map.map_content);
