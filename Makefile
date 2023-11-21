@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
+#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/21 12:42:33 by paescano         ###   ########.fr        #
+#    Updated: 2023/11/21 17:44:30 by preina-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,6 +131,6 @@ re_bonus: fclean_bonus bonus
 
 norma_bonus:
 	@echo $(B)Checking Norminette...$(X)
-	@norminette $(CFILES_BONUS) ./bonus/include
+	@norminette $(CFILES_BONUS) ./bonus/includes
 
 .PHONY: all clean fclean re norma bonus clean_bonus fclean_bonus re_bonus norma_bonus

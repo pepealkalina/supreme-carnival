@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:57:28 by preina-g          #+#    #+#             */
-/*   Updated: 2023/11/21 11:18:14 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:43:36 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,10 @@ static void	ft_free_file(char **file)
 	free(file);
 }
 
-void	ft_leaks(void)
-{
-	system("leaks cub3D");
-}
-
 int	main(int argc, char **argv)
 {
 	t_cub3d	cub3d;
 
-	//atexit(ft_leaks);
 	if (argc != 2)
 		ft_exit(ERROR_ARGS);
 	if (!ft_file_set_up(&cub3d, argv))
