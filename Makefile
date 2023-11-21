@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: paescano <paescano@student.42.fr>          +#+  +:+       +#+         #
+#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 12:57:30 by preina-g          #+#    #+#              #
-#    Updated: 2023/11/20 16:29:37 by paescano         ###   ########.fr        #
+#    Updated: 2023/11/21 12:21:55 by preina-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,14 @@ G = "\033[32m"
 B = "\033[34m"
 X = "\033[0m"
 
-CFILES = main.c utils/ft_free.c utils/ft_add_pp.c utils/ft_pplen.c utils/ft_freepp.c \
-		checker/open_file.c parser/parse_textures.c parser/parse_textures_2.c parser/parse_rgb.c \
-		parser/parse_rgb_2.c parser/parse_cub.c inits/init_mlx.c handlers/handler_background.c \
-		parser/parse_map.c parser/parse_map_2.c utils/ft_printpp.c utils/ft_ppdup.c \
-		handlers/handler_textures.c inits/init_player.c raycasting/raycasting.c \
-		raycasting/pos_len_ray.c raycasting/ft_dda.c raycasting/pos_len_line.c \
-		raycasting/extract_line_tex.c raycasting/draw_line.c handlers/handler_camera.c \
-		handlers/handler_moves.c handlers/handler_minimap_bonus.c parser/parse_map_3.c
+CFILES = main_bonus_bonus.c utils/ft_free_bonus.c utils/ft_add_pp_bonus.c utils/ft_pplen_bonus.c utils/ft_freepp_bonus.c \
+		checker/open_file_bonus.c parser/parse_textures_bonus.c parser/parse_textures_2_bonus.c parser/parse_rgb_bonus.c \
+		parser/parse_rgb_2_bonus.c parser/parse_cub_bonus.c inits/init_mlx_bonus.c handlers/handler_background_bonus.c \
+		parser/parse_map_bonus.c parser/parse_map_2_bonus.c utils/ft_printpp_bonus.c utils/ft_ppdup_bonus.c \
+		handlers/handler_textures_bonus.c inits/init_player_bonus.c raycasting/raycasting_bonus.c \
+		raycasting/pos_len_ray_bonus.c raycasting/ft_dda_bonus.c raycasting/pos_len_line_bonus.c \
+		raycasting/extract_line_tex_bonus.c raycasting/draw_line_bonus.c handlers/handler_camera_bonus.c \
+		handlers/handler_moves_bonus.c handlers/handler_minimap_bonus_bonus.c parser/parse_map_3_bonus.c
 
 CFILES_BONUS = bonus/main_bonus.c 
 
