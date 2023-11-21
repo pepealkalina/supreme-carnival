@@ -98,7 +98,7 @@ int	is_map_closed(t_player *start, const char **map)
 	int	irow;
 	int	icol;
 
-	if (!is_in_border((char **)map, start->pos_x, start->pos_y))
+	if (!is_in_border((char **)map, start->pos_y, start->pos_x))
 		return (0);
 	irow = -1;
 	while (++irow < ft_pplen((char **)map) - 1)
